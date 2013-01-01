@@ -15,5 +15,7 @@ export class ChevronIconComponent {
 
 export enum ChevronType {
   UP = 'rotate(0)',
-  DOWN = 'rotate(180deg',
+  DOWN = 'rotate(180deg)',
+  LEFT = 'rotate(-90deg)',
+  RIGHT = 'rotate(90deg)'
 }
