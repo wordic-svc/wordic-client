@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertModalService } from '../../components/modal/alert-modal/alert-modal.service';
-import { AdItem } from '../../components/common/ad-banner/ad-banner.component';
-import { AdService } from '../../components/common/ad-banner/ad.service';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +8,7 @@ import { AdService } from '../../components/common/ad-banner/ad.service';
 })
 export class HomeComponent implements OnInit{
 
-  ads: AdItem[] = [];
-  constructor (private alertModalSvc: AlertModalService, private adService: AdService) {
+  constructor (private alertModalSvc: AlertModalService) {
   }
   ngOnInit (): void {
     // setTimeout(() => {
@@ -22,9 +19,6 @@ export class HomeComponent implements OnInit{
 
   }
   async initData() {
-    const componentsName = ['AdsSampleA', 'AdsSampleB'];
-
-    this.ads = await this.adService.getAdsAsync(componentsName);
   }
 
 }
