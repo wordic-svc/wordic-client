@@ -24,7 +24,7 @@ export class LargeUseInputComponent {
   }
 
   inputFields = [
-    { label: '', placeholder: '등록일시', name: 'REG_DT', value: '' },
+    { label: '', placeholder: '등록일시', name: 'RGST_DT', value: '' },
     { label: '', placeholder: '아이디', name: 'ID', value: '' },
     { label: '', placeholder: '테이블속성구분', name: 'TBL_PRPR_DVSN', value: '' },
     { label: '', placeholder: '데이터사용여부', name: 'DT_USE_YN', value: '' },
