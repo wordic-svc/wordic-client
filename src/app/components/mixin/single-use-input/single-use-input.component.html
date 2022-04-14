@@ -37,31 +37,31 @@
         <tr class="border-b-[1px] border-gray-300">
           <td class="pb-3 pt-3 pl-5 pr-5 text-black">
             <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer">
-              RegistDatetime
+              {{resultData.info.kebab_case}}
               <app-copy-icon class="text-gray-400"></app-copy-icon>
             </div>
           </td>
           <td class="pb-3 pt-3 pl-5 pr-5 text-black">
             <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer">
-              Reg_Dt
+              {{resultData.info.camel_case}}
               <app-copy-icon class="text-gray-400 "></app-copy-icon>
             </div>
           </td>
           <td class="pb-3 pt-3 pl-5 pr-5 text-black">
             <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer">
-              regDt
+              {{resultData.info.pascal_case}}
               <app-copy-icon class="text-gray-400 "></app-copy-icon>
             </div>
           </td>
           <td class="pb-3 pt-3 pl-5 pr-5 text-black">
             <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer">
-              reg_dt
+              {{resultData.info.snake_case_s}}
               <app-copy-icon class="text-gray-400 "></app-copy-icon>
             </div>
           </td>
           <td class="pb-3 pt-3 pl-5 pr-5 text-black">
             <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer">
-              REG_DT
+              {{resultData.info.snake_case_l}}
               <app-copy-icon class="text-gray-400 "></app-copy-icon>
             </div>
           </td>
@@ -82,16 +82,11 @@
         </tr>
         </thead>
         <tbody class="text-center">
-        <tr class="border-b-[1px] border-gray-300">
-          <td class="text-gray-600 pb-3 pt-3 pl-5 pr-5">등록</td>
-          <td class="text-gray-600 pb-3 pt-3 pl-5 pr-5">Regist</td>
-          <td class="text-gray-600 pb-3 pt-3 pl-5 pr-5">Reg</td>
-        </tr>
-        <tr class="border-b-[1px] border-gray-300">
-          <td class="text-gray-600  pb-3 pt-3 pl-5 pr-5">일시</td>
-          <td class="text-gray-600  pb-3 pt-3 pl-5 pr-5">Datetime</td>
-          <td class="text-gray-600  pb-3 pt-3 pl-5 pr-5">Dt</td>
-        </tr>
+          <tr class="border-b-[1px] border-gray-300" *ngFor="let obj of resultData.words">
+            <td class="text-gray-600 pb-3 pt-3 pl-5 pr-5">{{obj.kor_text}}</td>
+            <td class="text-gray-600 pb-3 pt-3 pl-5 pr-5">{{obj.eng_text}}</td>
+            <td class="text-gray-600 pb-3 pt-3 pl-5 pr-5">{{obj.attrive_text}}</td>
+          </tr>
         </tbody>
       </table>
     </div>
