@@ -16,7 +16,6 @@ export class SingleUseInputComponent {
   @Input()
   subtitle: string = '변환하기';
 
-  protected readonly ChevronType = ChevronType;
   platformId: string = '';
 
   resultData: ResultAttrive = {
