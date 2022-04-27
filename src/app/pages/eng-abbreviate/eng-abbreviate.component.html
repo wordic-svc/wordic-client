@@ -2,10 +2,10 @@
   <div class="grid grid-cols-1 gap-1"><div class="flex flex-col items-center rounded-[20px] text-gray-300 lg:w-auto">
     <div class="grid grid-cols-1 gap-1 mt-5 w-[100%]">
       <h1 class="pt-2 pb-5 items-center flex justify-center text-xl font-bold text-gray-800 lg:pt-0 lg:text-2xl">
-        변수명 짓기, 컬럼명 짓기, 영어약자을 쉽게 만들 수 있습니다.
+        영어약자를 쉽게 만들 수 있습니다.
       </h1>
       <h2  class="pt-2 pb-5 items-center flex justify-center font-bold text-gray-800 lg:pt-0 text-xl">
-        아래 입력창에 한글 변수명, 컬럼을 입력하면 자동 영어약자를 만들어줍니다.
+        아래 입력창에 영어 단어를 입력하면 자동 영어약자를 만들어줍니다.
       </h2>
       <div class="flex items-center justify-center text-black">
         <app-input-text class="w-[50%]" #TestEle
@@ -27,56 +27,6 @@
         </button>
       </div>
     </div>
-    <div class="w-full pt-5 pb-5 pl-10 pr-10 lg:p-0 scroll-auto">
-      <p class="pt-2 text-xl font-bold text-gray-800 lg:pt-0 lg:text-2xl">축약어</p>
-      <div style="overflow:auto; min-width:295px">
-        <table class="w-full">
-          <thead>
-          <tr class="border-b-[1px] border-gray-700">
-            <th class="pb-3 pt-3 pl-5 pr-5 text-black">영문</th>
-            <th class="pb-3 pt-3 pl-5 pr-5 text-black">카멜</th>
-            <th class="pb-3 pt-3 pl-5 pr-5 text-black">파스칼</th>
-            <th class="pb-3 pt-3 pl-5 pr-5 text-black">스네이크(소)</th>
-            <th class="pb-3 pt-3 pl-5 pr-5 text-black">스네이크(대)</th>
-          </tr>
-          </thead>
-          <tbody class="text-center">
-          <tr class="border-b-[1px] border-gray-300">
-            <td class="pb-3 pt-3 pl-5 pr-5 text-black">
-              <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer">
-                {{resultData.info.kebab_case}}
-                <app-copy-icon class="text-gray-400"></app-copy-icon>
-              </div>
-            </td>
-            <td class="pb-3 pt-3 pl-5 pr-5 text-black">
-              <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer">
-                {{resultData.info.camel_case}}
-                <app-copy-icon class="text-gray-400 "></app-copy-icon>
-              </div>
-            </td>
-            <td class="pb-3 pt-3 pl-5 pr-5 text-black">
-              <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer">
-                {{resultData.info.pascal_case}}
-                <app-copy-icon class="text-gray-400 "></app-copy-icon>
-              </div>
-            </td>
-            <td class="pb-3 pt-3 pl-5 pr-5 text-black">
-              <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer">
-                {{resultData.info.snake_case_s}}
-                <app-copy-icon class="text-gray-400 "></app-copy-icon>
-              </div>
-            </td>
-            <td class="pb-3 pt-3 pl-5 pr-5 text-black">
-              <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer">
-                {{resultData.info.snake_case_l}}
-                <app-copy-icon class="text-gray-400 "></app-copy-icon>
-              </div>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
     <div class="w-full mb-52 pl-10 pr-10 lg:p-0 lg:pt-5">
       <p class="pt-2 pb-2 text-xl font-bold text-gray-800 lg:pt-0 lg:text-2xl">구성정보</p>
       <div style="overflow:auto; min-width:295px">
@@ -84,14 +34,12 @@
           <thead>
           <tr class="border-b-[1px] border-gray-700">
             <th class="pb-3 pt-3 pl-5 pr-5 text-black">단어</th>
-            <th class="pb-3 pt-3 pl-5 pr-5 text-black">영어번역</th>
             <th class="pb-3 pt-3 pl-5 pr-5 text-black">축약어</th>
           </tr>
           </thead>
           <tbody class="text-center">
           <tr class="border-b-[1px] border-gray-300" *ngFor="let obj of resultData.words">
             <td class="text-gray-600 pb-3 pt-3 pl-5 pr-5">{{obj.kor_text}}</td>
-            <td class="text-gray-600 pb-3 pt-3 pl-5 pr-5">{{obj.eng_text}}</td>
             <td class="text-gray-600 pb-3 pt-3 pl-5 pr-5">{{obj.attrive_text}}</td>
           </tr>
           </tbody>
