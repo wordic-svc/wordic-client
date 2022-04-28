@@ -20,10 +20,10 @@ export class AppSeoService {
     this.meta.updateTag({ property: 'og:description', content: data.description });
     this.meta.updateTag({ property: 'og:site_name', content: data.site_name });
     this.meta.updateTag({ property: 'og:url', content: data.site_url });
-    this.meta.updateTag({ property: 'og:images', content: data.src });
-    this.meta.updateTag({ property: 'og:images:alt', content: data.description });
-    this.meta.updateTag({ property: 'og:images:width', content: '900' });
-    this.meta.updateTag({ property: 'og:images:height', content: '420' });
+    this.meta.updateTag({ property: 'og:image', content: data.src });
+    this.meta.updateTag({ property: 'og:image:alt', content: data.description });
+    this.meta.updateTag({ property: 'og:image:width', content: '900' });
+    this.meta.updateTag({ property: 'og:image:height', content: '420' });
     this.createAlternateLink(data.lang, data.site_url);
     this.createCanonicalLink(data.site_url);
     // 기존 태그들을 삭제
