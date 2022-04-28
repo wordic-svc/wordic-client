@@ -23,6 +23,7 @@ import player from 'lottie-web';
 import { LottieModule } from 'ngx-lottie';
 import { LottiModule } from './components/common/lotti/lotti.module';
 import { environment } from '../environments/environment';
+import { EngAbbreviateModule } from './pages/eng-abbreviate/eng-abbreviate.module';
 
 // Note we need a separate function as it's required
 // by the AOT compiler.
@@ -53,7 +54,8 @@ export function playerFactory() {
     IntroModule,
     AlertModalModule,
     DatePickerModule,
-    LottiModule
+    LottiModule,
+    EngAbbreviateModule
   ],
   providers: [ provideClientHydration() ],
   bootstrap: [AppComponent]
