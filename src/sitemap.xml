@@ -8,7 +8,13 @@
     </url>
     <url>
         <loc>https://wordic.loeaf.com/variable-name</loc>
-        <lastmod>2023-12-09</lastmod>
+        <lastmod>2023-12-25</lastmod>
+        <priority>1</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://wordic.loeaf.com/eng-abbreviate</loc>
+        <lastmod>2023-12-25</lastmod>
         <priority>1</priority>
         <changefreq>weekly</changefreq>
     </url>
