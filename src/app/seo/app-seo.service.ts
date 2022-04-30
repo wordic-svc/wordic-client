@@ -66,7 +66,7 @@ export class AppSeoService {
       }]
     );
 
-    this.createCanonicalLink(environment.basePath);
+    this.createCanonicalLink(data.site_url);
     this.createAlternateLink(data.lang, environment.basePath);
   }
   private removeAlternateLinkForLocale(locale: string) {

@@ -13,10 +13,6 @@ export class HomeComponent implements OnInit{
   constructor (private appSeoService: AppSeoService) {
   }
   ngOnInit (): void {
-    // setTimeout(() => {
-    //   this.alertModalSvc.toggle.next({});
-    // })
-
     this.initData();
     const seoData: SeoData = {
       author: 'wordic',
