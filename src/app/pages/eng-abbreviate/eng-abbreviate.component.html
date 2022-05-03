@@ -1,15 +1,41 @@
+<section class="relative pb-1 sm:pb-5 ">
+  <div class="mx-auto lg:px-0 max-w-[820px] ">
+    <div class="flex flex-col-reverse lg:flex-row">
+      <div class="flex-auto self-center">
+        <div class="lg:leading-[58px] lg:text-4xl text-2xl text-black break-keep font-bold leading-[36px] lg:px-0 px-5">
+          <div class="relative lg:block inline-block">
+            <span class="lg:px-0">영문 축약어</span>
+          </div>
+          <div class="relative lg:block inline-block">
+            <span class="lg:px-0">쉽게 만들어보세요!</span>
+          </div>
+        </div>
+        <div class="text-2xl  text-black break-keep mt-7 px-5 lg:px-0 lg:block">영문을 축약어로 만들어줍니다.</div>
+        <div class="xl:text-2xl text-[20px] relative xl:ml-[-25px] text-black break-keep mt-7 px-5 lg:px-0 lg:block">
+          RegistDateTime > RGST_DT
+          <div class="-z-10 absolute bg-gray-300 left-0 bottom-0 bg-highlight w-11/12 h-3 self-center rounded-full"></div>
+        </div>
+      </div>
+      <div class="flex-auto self-center mb-5">
+        <div class="flex justify-center">
+          <img src="./assets/static/img/main_img.jpeg" class="object-fill w-[360px] rounded" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="w-full flex justify-center flex-col mx-auto max-w-5xl ">
   <div class="grid grid-cols-1 gap-1"><div class="flex flex-col items-center rounded-[20px] text-gray-300 lg:w-auto">
     <div class="grid grid-cols-1 gap-1 mt-5 w-[100%]">
       <h1 class="pt-2 pb-5 items-center flex justify-center text-xl font-bold text-gray-800 lg:pt-0 lg:text-2xl">
-        영어약자를 쉽게 만들 수 있습니다.
+        영어약어를 쉽게 만들 수 있습니다.
       </h1>
       <h2  class="pt-2 pb-5 items-center flex justify-center font-bold text-gray-800 lg:pt-0 text-xl">
-        아래 입력창에 영어 단어를 입력하면 자동 영어약자를 만들어줍니다.
+        아래 입력창에 영어 단어를 입력하면 자동 영어약어를 만들어줍니다.
       </h2>
       <div class="flex items-center justify-center text-black">
         <app-input-text class="w-[50%]" #TestEle
-                        [Placeholder]="'등록일시'"
+                        [Placeholder]="'RegistDateTime'"
                         [name]="'sample'"
                         (valueChange)="onValueChange($event)"
                         [isFocus]="true"
@@ -33,14 +59,14 @@
         <table class="w-full">
           <thead>
           <tr class="border-b-[1px] border-gray-700">
-            <th class="pb-3 pt-3 pl-5 pr-5 text-black">단어</th>
             <th class="pb-3 pt-3 pl-5 pr-5 text-black">축약어</th>
+            <th class="pb-3 pt-3 pl-5 pr-5 text-black">축약수</th>
           </tr>
           </thead>
           <tbody class="text-center">
-          <tr class="border-b-[1px] border-gray-300" *ngFor="let obj of resultData.words">
-            <td class="text-gray-600 pb-3 pt-3 pl-5 pr-5">{{obj.kor_text}}</td>
-            <td class="text-gray-600 pb-3 pt-3 pl-5 pr-5">{{obj.attrive_text}}</td>
+          <tr class="border-b-[1px] border-gray-300" *ngFor="let obj of resultData">
+            <td class="text-gray-600 pb-3 pt-3 pl-5 pr-5">{{obj.text}}</td>
+            <td class="text-gray-600 pb-3 pt-3 pl-5 pr-5">{{obj.length}}</td>
           </tr>
           </tbody>
         </table>

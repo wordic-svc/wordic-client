@@ -15,33 +15,38 @@ export class EngAbbreviateComponent {
   @Input()
   subtitle: string = '변환하기';
   platformId: string = '';
-
-  resultData: ResultAttrive = {
-    info: {
-      kebab_case: 'rgst-dt',
-      camel_case: 'rgstDt',
-      snake_case_l: 'RGST_DT',
-      snake_case_s: 'rgst_dt',
-      pascal_case: 'RgstDt',
-      combined_text: []
-    },
-    words: [
-      {
-        "kor_text": "등록",
-        "eng_text": "registration",
-        "attrive_text": "rgst",
-        "pos": "0",
-        "code": "일반 명사"
-      },
-      {
-        "kor_text": "일시",
-        "eng_text": "date",
-        "attrive_text": "dt",
-        "pos": "1",
-        "code": "일반 명사"
-      }
-    ]
-  };
+  /**
+   * RDT	3
+   *       RgDT	4
+   *       RgsDT	5
+   *       RgstDT	6
+   *       RgstDtT	7
+   *       RgstDtTm	8
+   *       RegstDtTm	9
+   *       RegistDtTm	10
+   */
+  resultData: any = [{
+    'text': 'RgDT',
+    'length': 4
+  }, {
+    'text': 'RgsDT',
+    'length': 5
+  }, {
+    'text': 'RgstDT',
+    'length': 6
+  }, {
+    'text': 'RgstDtT',
+    'length': 7
+  }, {
+    'text': 'RgstDtTm',
+    'length': 8
+  }, {
+    'text': 'RegstDtTm',
+    'length': 9
+  }, {
+    'text': 'RegistDtTm',
+    'length': 10
+  }];
 
   constructor(private httpClient: HttpClient,
               private lotteSvc: LottiService,
@@ -76,7 +81,7 @@ export class EngAbbreviateComponent {
     try {
       this.lotteSvc.toggle.emit(true);
       if(isPlatformBrowser(this.platformId)) {
-        const res: any = await this.httpClient.get(environment.apiUrl + '/text2/' + value).toPromise();
+        const res: any = await this.httpClient.get(environment.apiUrl + '/eng/' + value).toPromise();
         this.resultData = res.result;
       }
     } catch (error) {
