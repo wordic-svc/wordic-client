@@ -8,4 +8,7 @@ import { Component } from '@angular/core';
 export class HamburgerComponent {
   isOpen: boolean = false;
 
+  onMove (engAbbreviate: string) {
+    location.href = `/${engAbbreviate}`;
+  }
 }

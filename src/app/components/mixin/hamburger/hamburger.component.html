@@ -13,11 +13,13 @@
               ng-trigger ng-trigger-showHideAnimation ng-star-inserted z-10"
       *ngIf="isOpen">
     <li class="p-2">
-      <button class="w-full rounded-md p-2 text-left font-medium text-gray-600 hover:bg-gray-200">
-        소개
+      <button class="w-full rounded-md p-2 text-left font-medium text-gray-600 hover:bg-gray-200"
+      (click)="onMove('variable-name')">
+        한글2영문 축약어
       </button>
-      <button class="w-full rounded-md p-2 text-left font-medium text-gray-600 hover:bg-gray-200">
-        표준화
+      <button class="w-full rounded-md p-2 text-left font-medium text-gray-600 hover:bg-gray-200"
+              (click)="onMove('eng-abbreviate')">
+        영어 축약어
       </button>
 <!--      <app-locale-list-box></app-locale-list-box>-->
     </li>
