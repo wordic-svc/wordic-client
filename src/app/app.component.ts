@@ -43,7 +43,7 @@ export class AppComponent implements OnInit{
       site_url: 'https://wordic.loeaf.com',
       lang: 'ko'
     };
-    this.appSeoService.setSeoData(seoData)
+    // this.appSeoService.setSeoData(seoData)
   }
   options: AnimationOptions = {
     path: './assets/animation.json',
