@@ -12,6 +12,7 @@ export class AppSeoService {
               @Inject(DOCUMENT) private document: Document) { }
 
   setMainSeoData(data: SeoData) {
+    const ogLocale = data.lang === 'ko' ? 'ko_KR' : 'en_US';
     this.title.setTitle(data.title)
     this.meta.addTags([
       { name: 'title', content: data.title},
@@ -32,7 +33,7 @@ export class AppSeoService {
       { property: 'og:image:alt', content: data.title},
       { property: 'og:type', content: 'website' },
       { property: 'og:site_name', content: data.site_name },
-      { property: 'og:locale', content: `ko_KR` },
+      { property: 'og:locale', content: ogLocale },
       { property: 'og:title', content: data.title},
       { property: 'og:description', content: data.description},
       { name: 'name', content: data.site_name },
@@ -51,39 +52,7 @@ export class AppSeoService {
     );
 
     this.createCanonicalLink(environment.basePath);
-    this.createAlternateLink('ko', environment.basePath);
-  }
-
-
-  setSeoData(data: SeoData) {
-    this.title.setTitle(data.title);
-    this.meta.updateTag({ name: 'author', content: data.author });
-    this.meta.updateTag({ name: 'keywords', content: data.keywords });
-    this.meta.updateTag({ name: 'description', content: data.description });
-    this.meta.updateTag({ property: 'og:type', content: 'website' });
-    this.meta.updateTag({ property: 'og:title', content: data.title });
-    this.meta.updateTag({ property: 'og:description', content: data.description });
-    this.meta.updateTag({ property: 'og:site_name', content: data.site_name });
-    this.meta.updateTag({ property: 'og:url', content: data.site_url });
-    this.meta.updateTag({ property: 'og:image', content: data.src });
-    this.meta.updateTag({ property: 'og:image:alt', content: data.description });
-    this.meta.updateTag({ property: 'og:image:width', content: '900' });
-    this.meta.updateTag({ property: 'og:image:height', content: '420' });
-    this.createAlternateLink(data.lang, data.site_url);
-    this.createCanonicalLink(data.site_url);
-    // 기존 태그들을 삭제
-    this.meta.removeTag("rel='icon'");
-    this.meta.removeTag("rel='apple-touch-icon'");
-    this.meta.removeTag("rel='manifest'");
-
-    // favicon 및 기타 링크 추가
-    this.meta.updateTag({ rel: 'icon', href: 'https://wordic.loeaf.com/assets/icon/favicon.ico' });
-    this.meta.updateTag({ rel: 'icon', type: 'image/png', sizes: '16x16', href: 'https://wordic.loeaf.com/assets/icon/favicon-16x16.ico' });
-    this.meta.updateTag({ rel: 'icon', type: 'image/png', sizes: '32x32', href: 'https://wordic.loeaf.com/assets/icon/favicon-32x32.ico' });
-    this.meta.updateTag({ rel: 'apple-touch-icon', sizes: '180x180', href: 'https://wordic.loeaf.com/assets/icon/apple-touch-icon.png' });
-    this.meta.updateTag({ rel: 'manifest', href: 'https://wordic.loeaf.com/assets/icon/site.webmanifest' });
-
-
+    this.createAlternateLink(data.lang, environment.basePath);
   }
   private removeAlternateLinkForLocale(locale: string) {
     const existingLinks = this.document.head.querySelectorAll('link[rel="alternate"]');
