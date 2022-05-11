@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit{
       site_url: environment.basePath + '/variable-name',
       src: environment.basePath + '/variable-name'
     }
-    this.appSeoService.setMainSeoData(seoData)
+    this.appSeoService.setSeoData(seoData)
   }
   async initData() {
   }

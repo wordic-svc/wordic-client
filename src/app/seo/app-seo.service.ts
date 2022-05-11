@@ -11,7 +11,7 @@ export class AppSeoService {
   constructor(private title: Title, private meta: Meta, @Inject(PLATFORM_ID) private platformId: Object,
               @Inject(DOCUMENT) private document: Document) { }
 
-  setMainSeoData(data: SeoData) {
+  setSeoData(data: SeoData) {
     const ogLocale = data.lang === 'ko' ? 'ko_KR' : 'en_US';
     this.title.setTitle(data.title)
     this.meta.addTags([

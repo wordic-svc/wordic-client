@@ -109,7 +109,7 @@ export class EngAbbreviateComponent implements OnInit{
       site_url: environment.basePath + '/eng-abbreviate',
       src: environment.basePath + '/eng-abbreviate'
     }
-    this.appSeoService.setMainSeoData(seoData)
+    this.appSeoService.setSeoData(seoData)
   }
 }
 
