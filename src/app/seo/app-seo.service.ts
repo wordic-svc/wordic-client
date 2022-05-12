@@ -12,7 +12,22 @@ export class AppSeoService {
               @Inject(DOCUMENT) private document: Document) { }
 
   setSeoData(data: SeoData) {
-    const ogLocale = data.lang === 'ko' ? 'ko_KR' : 'en_US';
+    let ogLocale = 'en_US';
+    if (data.lang === 'ko') {
+      ogLocale = 'ko_KR';
+    } else if (data.lang === 'en') {
+      ogLocale = 'en_US';
+    } else if (data.lang === 'ja') {
+      ogLocale = 'ja_JP';
+    } else if (data.lang === 'zh') {
+      ogLocale = 'zh_CN';
+    } else if (data.lang === 'ru') {
+      ogLocale = 'ru_RU';
+    } else if (data.lang === 'hi') {
+      ogLocale = 'hi_IN';
+    } else {
+      ogLocale = 'en_US';
+    }
     this.title.setTitle(data.title)
     this.meta.addTags([
       { name: 'title', content: data.title},
