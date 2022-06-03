@@ -32,18 +32,6 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit (): void {
-      const seoData = {
-      title: '한글&영어 변수명, 컬럼명, 영문약어 변환 | Wordic',
-      site_name: '한글&영어 변수명, 컬럼명, 영문약어 만들기 | Wordic',
-      description: 'Wordic은 변수명, 컬럼명, 영문 약어명을 쉽게 변경함으로써 일관성 있는 영어 스네이크 표현식으로 변환해주는 도구입니다.',
-      src: 'https://loeaf.com/assets/static/img/open_graph.png', // 이미지 경로를 여기에 넣으십시오.
-      author: 'Wordic',
-      keywords:
-        "변수명 짓기, 컬럼명 짓기, 영문약어, 영어약자, 변수 영어로, 변수 선언",
-      site_url: 'https://wordic.loeaf.com',
-      lang: 'ko'
-    };
-    // this.appSeoService.setSeoData(seoData)
   }
   options: AnimationOptions = {
     path: './assets/animation.json',
