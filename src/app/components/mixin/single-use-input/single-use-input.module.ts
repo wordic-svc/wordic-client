@@ -7,6 +7,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SearchIconModule } from '../../vector/search-icon/search-icon.module';
 import { ColumIconModule } from '../../vector/colum-icon/colum-icon.module';
 import { CopyIconModule } from '../../vector/copy-icon/copy-icon.module';
+import { CheckBoxModule } from '../../common/check-box/check-box.module';
 
 
 
@@ -24,7 +25,8 @@ import { CopyIconModule } from '../../vector/copy-icon/copy-icon.module';
     TranslateModule,
     SearchIconModule,
     ColumIconModule,
-    CopyIconModule
+    CopyIconModule,
+    CheckBoxModule
   ]
 })
 export class SingleUseInputModule { }

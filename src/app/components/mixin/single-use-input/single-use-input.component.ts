@@ -15,6 +15,7 @@ export class SingleUseInputComponent {
   title: string = '';
   @Input()
   subtitle: string = '변환하기';
+  abbreviation: boolean = false;
 
   platformId: string = '';
 
@@ -78,7 +79,11 @@ export class SingleUseInputComponent {
     try {
       this.lotteSvc.toggle.emit(true);
       if(isPlatformBrowser(this.platformId)) {
-        const res: any = await this.httpClient.get(environment.apiUrl + '/text2/' + value).toPromise();
+        const param = {
+          'name': value,
+          'abbri': this.abbreviation
+        }
+        const res: any = await this.httpClient.post(environment.apiUrl + '/text2', param).toPromise();
         this.resultData = res.result;
       }
     } catch (error) {
@@ -91,6 +96,10 @@ export class SingleUseInputComponent {
 
   onValueChange ($event: any) {
 
+  }
+
+  onChange ($event: boolean) {
+    this.abbreviation = $event;
   }
 }
 

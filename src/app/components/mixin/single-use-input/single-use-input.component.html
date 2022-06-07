@@ -7,6 +7,7 @@
       아래 입력창에 한글 변수명, 컬럼을 입력하면 자동 영어약자를 만들어줍니다.
     </h2>
     <div class="flex items-center justify-center text-black">
+      <app-check-box class="mr-5" [labelName]="'축약어 사용'" (checkEvt)="onChange($event)"></app-check-box>
       <app-input-text class="w-[50%]" #TestEle
                       [Placeholder]="'등록일시'"
                       [name]="'sample'"
