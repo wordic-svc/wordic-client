@@ -1,20 +1,20 @@
 <div class="flex flex-col items-center rounded-[20px] text-gray-300 lg:w-auto">
   <div class="grid grid-cols-1 gap-1 mt-5 w-[100%]">
-    <h1 class="pt-2 pb-5 items-center flex justify-center text-xl font-bold text-gray-800 lg:pt-0 lg:text-2xl">
+    <h1 class="pl-5 pr-5 md:p-0 items-center flex justify-center text-[16px] font-bold text-gray-800 lg:pt-0 lg:text-2xl">
       변수명 짓기, 컬럼명 짓기, 영어약자을 쉽게 만들 수 있습니다.
     </h1>
-    <h2  class="pt-2 pb-5 items-center flex justify-center font-bold text-gray-800 lg:pt-0 text-xl">
+    <h2  class="pl-5 pr-5 md:pt-0 items-center flex justify-center font-bold text-gray-800 text-[16px] md:text-xl">
       아래 입력창에 한글 변수명, 컬럼을 입력하면 자동 영어약자를 만들어줍니다.
     </h2>
-    <div class="flex items-center justify-center text-black">
-      <app-check-box class="mr-5" [labelName]="'축약어 사용'" (checkEvt)="onChange($event)"></app-check-box>
+    <div class="flex items-center justify-center text-black pl-5 pr-5">
+      <app-check-box class="mr-5" [labelName]="'축약어'" (checkEvt)="onChange($event)"></app-check-box>
       <app-input-text class="w-[50%]" #TestEle
                       [Placeholder]="'등록일시'"
                       [name]="'sample'"
                       (valueChange)="onValueChange($event)"
                       [isFocus]="true"
                       (enterPressed)="onEnterPressed($event)"></app-input-text>
-      <app-search-icon  class="ml-3 p-2 text-gray-400 cursor-pointer hover:text-indigo-200 border-2 rounded-2xl flex items-center justify-center w-12 h-full hover:bg-gray-500 "
+      <app-search-icon  class="ml-3 p-2 text-gray-400 cursor-pointer hover:text-indigo-200 border-2 rounded-2xl flex items-center justify-center w-[48px] h-[48px] hover:bg-gray-500 "
                         (click)="onClick(TestEle)"></app-search-icon>
 
       <button class="rounded-3xl border px-2.5 py-2.5 text-center
