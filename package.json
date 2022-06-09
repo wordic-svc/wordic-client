@@ -15,6 +15,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^16.2.7",
+    "@angular/cdk": "^16.2.12",
     "@angular/common": "^16.1.0",
     "@angular/compiler": "^16.1.0",
     "@angular/core": "^16.1.0",
@@ -31,6 +32,7 @@
     "compression": "^1.7.4",
     "express": "^4.15.2",
     "moment": "^2.29.4",
+    "ngx-clipboard": "^16.0.0",
     "ngx-lottie": "^10.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

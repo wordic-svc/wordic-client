@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { AnimationOptions } from 'ngx-lottie';
 import { AnimationItem } from 'ngx-lottie/lib/symbols';
 import { AppSeoService } from './seo/app-seo.service';
+import { Subscription } from 'rxjs';
+import { ToastService } from './components/common/toast/toast.service';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +16,12 @@ export class AppComponent implements OnInit{
   title = 'wordic';
   public testBrowser  : boolean | undefined;
   public data         : any;
+  public toastMessage : string | null = '';
+  private subscription: Subscription;
+
 
   constructor(private translateService: TranslateService,
+              private toastService: ToastService,
               private http: HttpClient, @Inject(PLATFORM_ID) platformId: string,
               private appSeoService: AppSeoService) {
     // 초기 언어 설정
@@ -23,6 +29,12 @@ export class AppComponent implements OnInit{
     // 번역된 문자열 가져오기
     this.translateService.use('ko'); // 언어 변경
     const translatedText = this.translateService.instant('Helloworld');
+    this.subscription = this.toastService.toastState.subscribe((message) => {
+      this.toastMessage = message;
+      setTimeout(() => {
+        this.toastMessage = null;
+      }, 3000); // Hide the toast after 3 seconds
+    });
     console.log(translatedText); // 번역된 문자열 출력
   }
 

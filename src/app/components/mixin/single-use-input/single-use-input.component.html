@@ -43,31 +43,31 @@
         <tbody class="text-center">
         <tr class="border-b-[1px] border-gray-300">
           <td class="pb-3 pt-3 pl-5 pr-5 text-black">
-            <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer">
+            <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer" (click)="copyClipboard(resultData.info.kebab_case)">
               {{resultData.info.kebab_case}}
               <app-copy-icon class="text-gray-400"></app-copy-icon>
             </div>
           </td>
           <td class="pb-3 pt-3 pl-5 pr-5 text-black">
-            <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer">
+            <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer" (click)="copyClipboard(resultData.info.camel_case)">
               {{resultData.info.camel_case}}
               <app-copy-icon class="text-gray-400 "></app-copy-icon>
             </div>
           </td>
           <td class="pb-3 pt-3 pl-5 pr-5 text-black">
-            <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer">
+            <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer" (click)="copyClipboard(resultData.info.pascal_case)">
               {{resultData.info.pascal_case}}
               <app-copy-icon class="text-gray-400 "></app-copy-icon>
             </div>
           </td>
           <td class="pb-3 pt-3 pl-5 pr-5 text-black">
-            <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer">
+            <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer" (click)="copyClipboard(resultData.info.snake_case_s)">
               {{resultData.info.snake_case_s}}
               <app-copy-icon class="text-gray-400 "></app-copy-icon>
             </div>
           </td>
           <td class="pb-3 pt-3 pl-5 pr-5 text-black">
-            <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer">
+            <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer" (click)="copyClipboard(resultData.info.snake_case_l)">
               {{resultData.info.snake_case_l}}
               <app-copy-icon class="text-gray-400 "></app-copy-icon>
             </div>

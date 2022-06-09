@@ -1,4 +1,5 @@
 <div class="relative">
+  <app-toast *ngIf="toastMessage" [message]="toastMessage"></app-toast>
   <app-lotti class="w-full h-full"></app-lotti>
   <app-alert-modal></app-alert-modal>
   <app-header></app-header>

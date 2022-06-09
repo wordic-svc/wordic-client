@@ -24,6 +24,7 @@ import { LottieModule } from 'ngx-lottie';
 import { LottiModule } from './components/common/lotti/lotti.module';
 import { environment } from '../environments/environment';
 import { EngAbbreviateModule } from './pages/eng-abbreviate/eng-abbreviate.module';
+import { ToastModule } from './components/common/toast/toast.module';
 
 // Note we need a separate function as it's required
 // by the AOT compiler.
@@ -55,7 +56,8 @@ export function playerFactory() {
     AlertModalModule,
     DatePickerModule,
     LottiModule,
-    EngAbbreviateModule
+    EngAbbreviateModule,
+    ToastModule
   ],
   providers: [ provideClientHydration() ],
   bootstrap: [AppComponent]

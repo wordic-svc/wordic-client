@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { LottiService } from '../../common/lotti/lotti.service';
 import { isPlatformBrowser } from '@angular/common';
 import { environment } from '../../../../environments/environment';
+import { Clipboard } from '@angular/cdk/clipboard';
 import { ChevronType } from '../../vector/chevron-icon/chevron-icon.component';
+import { ToastService } from '../../common/toast/toast.service';
 
 @Component({
   selector: 'app-single-use-input',
@@ -48,7 +50,9 @@ export class SingleUseInputComponent {
 
   constructor(private httpClient: HttpClient,
               private lotteSvc: LottiService,
+              private clipboard: Clipboard,
               @Inject(PLATFORM_ID) platformId: string,
+              private toastService: ToastService,
               private cdr: ChangeDetectorRef) {
     this.platformId = platformId;
   }
@@ -100,6 +104,12 @@ export class SingleUseInputComponent {
 
   onChange ($event: boolean) {
     this.abbreviation = $event;
+  }
+
+  copyClipboard (kebab_case: string) {
+    this.clipboard.copy(kebab_case);
+    this.toastService.showToast(`${kebab_case} 복사되었습니다.`);
+
   }
 }
 
