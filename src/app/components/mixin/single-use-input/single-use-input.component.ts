@@ -87,6 +87,7 @@ export class SingleUseInputComponent {
           'name': value,
           'abbri': this.abbreviation
         }
+        await this.httpClient.get(environment.apiUrl + '/input/'+value).toPromise();
         const res: any = await this.httpClient.post(environment.apiUrl + '/text2', param).toPromise();
         this.resultData = res.result;
       }
