@@ -7,6 +7,7 @@ import { LargeUseCardModule } from '../../components/common/large-use-card/large
 import { ImageUploaderModule } from '../../components/common/image-uploader/image-uploader.module';
 import { DatePickerModule } from '../../components/common/date-picker/date-picker.module';
 import { AdBannerModule } from '../../components/common/ad-banner/ad-banner.module';
+import { LargeUseInputModule } from '../../components/mixin/large-use-input/large-use-input.module';
 
 
 
@@ -20,7 +21,8 @@ import { AdBannerModule } from '../../components/common/ad-banner/ad-banner.modu
     LargeUseCardModule,
     ImageUploaderModule,
     DatePickerModule,
-    AdBannerModule
+    AdBannerModule,
+    LargeUseInputModule
   ],
   exports: [
     HomeComponent
