@@ -12,4 +12,10 @@ export class InputTextComponent {
   Placeholder = '';
   @Input()
   name = '';
+  // enter key press event
+
+  // 이벤트 핸들러 추가
+  onEnterPressed(event: any) {
+    alert(event.target.value)
+  }
 }
