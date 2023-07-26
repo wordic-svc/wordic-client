@@ -1,0 +1,3 @@
+User-agent: *
+Allow:/
+Sitemap: https://omb.loeaf.com/sitemap.xml
