@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr": "nodemon dist/wordic/server/main.js",
-    "build:ssr": "ng build && ng run wordic:server",
+    "build:ssr": "ng build -c production && ng run wordic:server",
     "prerender": "ng run wordic:prerender"
   },
   "private": true,

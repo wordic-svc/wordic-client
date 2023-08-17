@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ChevronType } from '../../vector/chevron-icon/chevron-icon.component';
 import { HttpClient } from '@angular/common/http';
 import { LottiService } from '../../common/lotti/lotti.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-large-use-input',
@@ -44,7 +45,7 @@ export class LargeUseInputComponent {
   async onSearch(value: string, originField: any) {
     try {
       this.lotteSvc.toggle.emit(true);
-      const res: any = await this.httpClient.get('http://loeaf.com/wordic-api/text/' + value).toPromise();
+      const res: any = await this.httpClient.get(environment.apiUrl + '/text/' + value).toPromise();
       res.result.forEach((item: any) => {
         this.inputFields.forEach((field: any) => {
           if (field.value === item.kor_name) {
