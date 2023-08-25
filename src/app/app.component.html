@@ -1,5 +1,7 @@
-<h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>
+<h1 i18n>{{ 'app.title' | translate }}</h1>
+<p>{{ 'app.description' | translate }}</p>
+
+<button (click)="switchLocale('en')">English</button>
+<button (click)="switchLocale('ko')">Ko</button>
 
 <router-outlet></router-outlet>
