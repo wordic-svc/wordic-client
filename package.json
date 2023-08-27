@@ -8,8 +8,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "dev:ssr": "ng run oh-my-baby:serve-ssr",
-    "serve:ssr": "node dist/oh-my-baby/server/main.js",
+    "serve:ssr": "nodemon dist/oh-my-baby/server/main.js",
     "build:ssr": "ng build && ng run oh-my-baby:server",
     "prerender": "ng run oh-my-baby:prerender"
   },
