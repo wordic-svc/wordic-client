@@ -6,10 +6,10 @@ import { AppComponent } from './app.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { environment } from '../environments/environment';
 import { HomeModule } from './pages/home/home.module';
 import { HeaderModule } from './layout/header/header.module';
 import { FooterModule } from './layout/footer/footer.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // TranslateLoader 초기화 함수
 export function HttpLoaderFactory(http: HttpClient) {
@@ -24,6 +24,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

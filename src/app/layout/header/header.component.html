@@ -7,6 +7,21 @@
         <button class="font-normal">아기성별예측</button>
         <button class="font-normal">배란일계산기</button>
       </div>
+      <div class="flex items-center space-x-2 lg:space-x-3">
+        <div class="flex items-center">
+          <button *ngIf="!isLogin" class="rounded-3xl border px-2.5 py-2.5 text-center
+                                          text-sm font-semibold transition-colors
+                                          border-gray-500 text-sm transition-colors
+                                          hover:border-white hover:bg-black
+                                          hover:text-white">
+            로그인
+          </button>
+          <button *ngIf="isLogin">
+            <app-profile-menu></app-profile-menu>
+          </button>
+        </div>
+      </div>
+
     </div>
   </div>
 </header>
