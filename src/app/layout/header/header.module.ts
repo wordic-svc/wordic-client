@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
-import { ProfileMenuModule } from '../../components/ui/profile-menu/profile-menu.module';
+import { ProfileMenuModule } from '../../components/mixin/profile-menu/profile-menu.module';
+import { HamburgerModule } from '../../components/mixin/hamburger/hamburger.module';
 
 
 
@@ -11,7 +12,8 @@ import { ProfileMenuModule } from '../../components/ui/profile-menu/profile-menu
   ],
   imports: [
     CommonModule,
-    ProfileMenuModule
+    ProfileMenuModule,
+    HamburgerModule
   ],
   exports: [
     HeaderComponent
