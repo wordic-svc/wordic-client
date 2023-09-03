@@ -13,6 +13,6 @@ export class LocaleListBoxComponent {
 
   toggleType () {
     this.type = this.type === ChevronType.UP ? ChevronType.DOWN : ChevronType.UP;
-    this.isActive = !this.isActive;
+    setTimeout(() => {this.isActive = !this.isActive;});
   }
 }
