@@ -1,0 +1,28 @@
+<div class="relative z-10 flex items-center">
+  <div
+    (click)="toggleType();" class="relative w-full rounded-3xl border text-left font-semibold border-gray-500 px-2.5 py-2.5 text-sm transition-colors hover:border-white hover:bg-black hover:text-white">
+    <div class="flex items-center space-x-1">
+      <app-earth-icon></app-earth-icon>
+      <span class="block truncate pr-5">한국어</span>
+      <app-chevron-icon [type]="type"></app-chevron-icon>
+    </div>
+  </div>
+  <ul class="absolute ml-4 lr-4 right-0 z-20 flex w-fit
+              translate-y-20 flex-col divide-y overflow-hidden rounded-lg
+              bg-white shadow-md focus:ring-black ng-tns-c1097677772-0
+              ng-trigger ng-trigger-showHideAnimation ng-star-inserted"
+      [@showHideAnimation]="isActive"
+      *ngIf="isActive">
+    <li class="p-2">
+      <button class="w-full rounded-md p-2 text-left font-medium text-gray-600 hover:bg-gray-200">
+        Test1
+      </button>
+      <button class="w-full rounded-md p-2 text-left font-medium text-gray-600 hover:bg-gray-200">
+        Test2
+      </button>
+      <button class="w-full rounded-md p-2 text-left font-medium text-gray-600 hover:bg-gray-200">
+        Test3
+      </button>
+    </li>
+  </ul>
+</div>
