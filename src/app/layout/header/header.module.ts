@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
 import { ProfileMenuModule } from '../../components/mixin/profile-menu/profile-menu.module';
 import { HamburgerModule } from '../../components/mixin/hamburger/hamburger.module';
+import { LocaleListBoxModule } from '../../components/mixin/locale-list-box/locale-list-box.module';
 
 
 
@@ -13,7 +14,8 @@ import { HamburgerModule } from '../../components/mixin/hamburger/hamburger.modu
   imports: [
     CommonModule,
     ProfileMenuModule,
-    HamburgerModule
+    HamburgerModule,
+    LocaleListBoxModule
   ],
   exports: [
     HeaderComponent
