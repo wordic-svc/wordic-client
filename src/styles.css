@@ -1,4 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "./assets/static/pretendard-subset.css";
+
+
+/* 글꼴 설정 */
+* {
+  font-family: 'Pretendard', sans-serif;
+}
