@@ -8,7 +8,7 @@ import { ChevronType } from '../../vector/chevron-icon/chevron-icon.component';
 })
 export class LocaleListBoxComponent {
 
-  type = ChevronType.UP;
+  type = ChevronType.DOWN;
   isActive: boolean = false;
 
   toggleType () {
