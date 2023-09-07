@@ -3,7 +3,7 @@
     (click)="toggleType();" class="relative w-full rounded-3xl border text-left font-semibold border-gray-500 px-2.5 py-2.5 text-sm transition-colors hover:border-white hover:bg-black hover:text-white">
     <div class="flex items-center space-x-1">
       <app-earth-icon></app-earth-icon>
-      <span class="block truncate pr-5">한국어</span>
+      <span class="block truncate pr-5">{{localeStr}}</span>
       <app-chevron-icon [type]="type"></app-chevron-icon>
     </div>
   </div>
@@ -14,14 +14,14 @@
       [@showHideAnimation]="isActive"
       *ngIf="isActive">
     <li class="p-2">
-      <button class="w-full rounded-md p-2 text-left font-medium text-gray-600 hover:bg-gray-200">
-        Test1
+      <button (click)="changeLocale('ko')" class="w-full rounded-md p-2 text-left font-medium text-gray-600 hover:bg-gray-200">
+        한국어
       </button>
-      <button class="w-full rounded-md p-2 text-left font-medium text-gray-600 hover:bg-gray-200">
-        Test2
+      <button (click)="changeLocale('en')" class="w-full rounded-md p-2 text-left font-medium text-gray-600 hover:bg-gray-200">
+        영어
       </button>
-      <button class="w-full rounded-md p-2 text-left font-medium text-gray-600 hover:bg-gray-200">
-        Test3
+      <button (click)="changeLocale('ja')" class="w-full rounded-md p-2 text-left font-medium text-gray-600 hover:bg-gray-200">
+        일본어
       </button>
     </li>
   </ul>

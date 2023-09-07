@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-text-card',
@@ -10,5 +11,8 @@ export class TextCardComponent {
   title: string = '';
   @Input()
   description: string = '';
+
+  constructor (private translateService: TranslateService) {
+  }
 
 }
