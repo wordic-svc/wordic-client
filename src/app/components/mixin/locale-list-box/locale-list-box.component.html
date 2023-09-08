@@ -11,17 +11,10 @@
               translate-y-20 flex-col divide-y overflow-hidden rounded-lg
               bg-white shadow-md focus:ring-black ng-tns-c1097677772-0
               ng-trigger ng-trigger-showHideAnimation ng-star-inserted"
-      [@showHideAnimation]="isActive"
       *ngIf="isActive">
-    <li class="p-2">
-      <button (click)="changeLocale('ko')" class="w-full rounded-md p-2 text-left font-medium text-gray-600 hover:bg-gray-200">
-        한국어
-      </button>
-      <button (click)="changeLocale('en')" class="w-full rounded-md p-2 text-left font-medium text-gray-600 hover:bg-gray-200">
-        영어
-      </button>
-      <button (click)="changeLocale('ja')" class="w-full rounded-md p-2 text-left font-medium text-gray-600 hover:bg-gray-200">
-        일본어
+    <li class="p-2" *ngFor="let item of localeDisplayMap">
+      <button (click)="changeLocale(item.key)" class="w-full rounded-md p-2 text-left font-medium text-gray-600 hover:bg-gray-200">
+        {{item.value}}
       </button>
     </li>
   </ul>
