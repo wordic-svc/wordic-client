@@ -31,13 +31,10 @@ export class LocaleListBoxComponent implements OnInit{
 
   ngOnInit (): void {
     // map to list
-    const localeDisplayArray = Object.entries(localeDisplayMap).map(([key, value]) => ({ key, value }));
-
-    debugger;
-;    this.localeDisplayMap = localeDisplayArray
-
+    this.localeDisplayMap =
+      Object.entries(localeDisplayMap)
+              .map(([key, value]) => ({ key, value }));
   }
-
 }
 
 export const localeType = {
