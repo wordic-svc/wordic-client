@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HamburgerComponent } from './hamburger.component';
 import { MenuIconModule } from '../../vector/menu-icon/menu-icon.module';
+import { LocaleListBoxModule } from '../locale-list-box/locale-list-box.module';
 
 
 
@@ -11,7 +12,8 @@ import { MenuIconModule } from '../../vector/menu-icon/menu-icon.module';
   ],
   imports: [
     CommonModule,
-    MenuIconModule
+    MenuIconModule,
+    LocaleListBoxModule
   ],
   exports: [
     HamburgerComponent
