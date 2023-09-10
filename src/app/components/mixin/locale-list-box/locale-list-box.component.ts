@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { ChevronType } from '../../vector/chevron-icon/chevron-icon.component';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -7,15 +7,18 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './locale-list-box.component.html',
   styleUrls: ['./locale-list-box.component.css']
 })
-export class LocaleListBoxComponent implements OnInit{
+export class LocaleListBoxComponent implements OnInit, AfterViewInit{
 
   type = ChevronType.DOWN;
   isActive: boolean = false;
-  localeStr: any = '한국어';
+  localeStr: any = '';
   localeDisplayMap: any;
 
-  constructor (private translateService: TranslateService) {
+  constructor (private translateService: TranslateService, private elementRef: ElementRef) {
+  }
 
+  ngAfterViewInit(): void {
+    this.localeStr = localeDisplayMap[this.translateService.currentLang];
   }
 
   toggleType () {
@@ -34,6 +37,16 @@ export class LocaleListBoxComponent implements OnInit{
     this.localeDisplayMap =
       Object.entries(localeDisplayMap)
               .map(([key, value]) => ({ key, value }));
+  }
+
+  // Detect clicks on the document
+  @HostListener('document:click', ['$event'])
+  handleClickOutside(event: Event) {
+    if (!this.elementRef.nativeElement.contains(event.target)) {
+      // Click occurred outside the component, close it
+      this.isActive = false;
+      this.type = ChevronType.DOWN;
+    }
   }
 }
 
