@@ -16,3 +16,9 @@ export class TextCardComponent {
   }
 
 }
+
+export enum TextCardType {
+  'default',
+  'shadow1',
+  'shadow2',
+}
