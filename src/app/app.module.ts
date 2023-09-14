@@ -12,6 +12,7 @@ import { FooterModule } from './layout/footer/footer.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VectorModule } from './components/vector/vector.module';
 import { IntroModule } from './pages/intro/intro.module';
+import { AlertModalModule } from './components/modal/alert-modal/alert-modal.module';
 
 // TranslateLoader 초기화 함수
 export function HttpLoaderFactory(http: HttpClient) {
@@ -38,7 +39,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeModule,
     FooterModule,
     HeaderModule,
-    IntroModule
+    IntroModule,
+    AlertModalModule
   ],
   providers: [ provideClientHydration() ],
   bootstrap: [AppComponent]

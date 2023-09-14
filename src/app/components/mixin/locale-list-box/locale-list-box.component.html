@@ -1,4 +1,4 @@
-<div class="relative z-10 flex items-center">
+<div class="relative flex items-center">
   <div
     (click)="toggleType();" class="relative w-full rounded-3xl border text-left font-semibold border-gray-500 px-2.5 py-2.5 text-sm transition-colors hover:border-white hover:bg-black hover:text-white">
     <div class="flex items-center space-x-1">
@@ -7,13 +7,13 @@
       <app-chevron-icon [type]="type"></app-chevron-icon>
     </div>
   </div>
-  <ul class="absolute ml-4 lr-4 right-0 z-20 flex w-fit
+  <ul class="absolute ml-4 lr-4 right-0 z-1 flex w-fit
               translate-y-20 flex-col divide-y overflow-hidden rounded-lg
               bg-white shadow-md focus:ring-black ng-tns-c1097677772-0
-              ng-trigger ng-trigger-showHideAnimation ng-star-inserted"
+              ng-trigger ng-trigger-showHideAnimation ng-star-inserted z-10"
       *ngIf="isActive">
-    <li class="p-2" *ngFor="let item of localeDisplayMap">
-      <button (click)="changeLocale(item.key)" class="w-full rounded-md p-2 text-left font-medium text-gray-600 hover:bg-gray-200">
+    <li class="p-2">
+      <button  *ngFor="let item of localeDisplayMap" (click)="changeLocale(item.key)" class="w-full rounded-md p-2 text-left font-medium text-gray-600 hover:bg-gray-200">
         {{item.value}}
       </button>
     </li>

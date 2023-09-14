@@ -15,10 +15,11 @@ export class LocaleListBoxComponent implements OnInit, AfterViewInit{
   localeDisplayMap: any;
 
   constructor (private translateService: TranslateService, private elementRef: ElementRef) {
+
+    this.localeStr = localeDisplayMap[this.translateService.currentLang];
   }
 
   ngAfterViewInit(): void {
-    this.localeStr = localeDisplayMap[this.translateService.currentLang];
   }
 
   toggleType () {

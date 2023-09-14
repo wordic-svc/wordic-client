@@ -7,11 +7,10 @@
     </div>
   </div>
 
-  <ul class="absolute min-h-[720px] ml-4 lr-4 right-0 z-20 flex w-full
+  <ul class="absolute min-h-[720px] ml-4 lr-4 right-0 flex w-full
               flex-col divide-y overflow-hidden rounded-lg
               bg-white shadow-md focus:ring-black ng-tns-c1097677772-0
-              ng-trigger ng-trigger-showHideAnimation ng-star-inserted"
-      [@showHideAnimation]="isOpen"
+              ng-trigger ng-trigger-showHideAnimation ng-star-inserted z-10"
       *ngIf="isOpen">
     <li class="p-2">
       <button class="w-full rounded-md p-2 text-left font-medium text-gray-600 hover:bg-gray-200">
@@ -27,7 +26,6 @@
     </li>
   </ul>
   <div
-    [@showHideAnimation]="isOpen"
     *ngIf="isOpen" class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity mt-[133px]">
   </div>
 </div>
