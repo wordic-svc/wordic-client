@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VectorModule } from './components/vector/vector.module';
 import { IntroModule } from './pages/intro/intro.module';
 import { AlertModalModule } from './components/modal/alert-modal/alert-modal.module';
+import { DatePickerModule } from './components/common/date-picker/date-picker.module';
 
 // TranslateLoader 초기화 함수
 export function HttpLoaderFactory(http: HttpClient) {
@@ -40,7 +41,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterModule,
     HeaderModule,
     IntroModule,
-    AlertModalModule
+    AlertModalModule,
+    DatePickerModule
   ],
   providers: [ provideClientHydration() ],
   bootstrap: [AppComponent]
