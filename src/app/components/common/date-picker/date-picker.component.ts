@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import { ChevronType } from '../../vector/chevron-icon/chevron-icon.component';
 
 @Component({
   selector: 'app-date-picker',
@@ -34,7 +35,7 @@ export class DatePickerComponent implements OnInit {
     this.showYearDropdown = !this.showYearDropdown;
   }
 
-  constructor() {}
+  constructor( private elementRef: ElementRef) {}
 
   ngOnInit(): void {
     this.initDate();
@@ -121,4 +122,12 @@ export class DatePickerComponent implements OnInit {
     return years;
   }
 
+  // Detect clicks on the document
+  @HostListener('document:click', ['$event'])
+  handleClickOutside(event: Event) {
+    if (!this.elementRef.nativeElement.contains(event.target)) {
+      // Click occurred outside the component, close it
+      this.showDatepicker = false;
+    }
+  }
 }
