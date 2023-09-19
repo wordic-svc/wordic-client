@@ -6,6 +6,7 @@ import { TextCardModule } from '../../components/common/text-card/text-card.modu
 import { LargeUseCardModule } from '../../components/common/large-use-card/large-use-card.module';
 import { ImageUploaderModule } from '../../components/common/image-uploader/image-uploader.module';
 import { DatePickerModule } from '../../components/common/date-picker/date-picker.module';
+import { AdBannerModule } from '../../components/common/ad-banner/ad-banner.module';
 
 
 
@@ -18,10 +19,11 @@ import { DatePickerModule } from '../../components/common/date-picker/date-picke
     TextCardModule,
     LargeUseCardModule,
     ImageUploaderModule,
-    DatePickerModule
+    DatePickerModule,
+    AdBannerModule
   ],
   exports: [
     HomeComponent
-  ]
+  ],
 })
 export class HomeModule { }
