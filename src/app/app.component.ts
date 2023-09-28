@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'oh-my-baby';
-  constructor(private translateService: TranslateService) {
+  public testBrowser  : boolean | undefined;
+  public data         : any;
+  constructor(private translateService: TranslateService,
+              private http: HttpClient, @Inject(PLATFORM_ID) platformId: string) {
     // 초기 언어 설정
     translateService.setDefaultLang('ko'); // 한국어로 설정
     // 번역된 문자열 가져오기
@@ -20,5 +24,12 @@ export class AppComponent {
   // 다른 로캘로 변경하는 함수
   switchLocale(locale: string) {
     this.translateService.use(locale);
+  }
+
+  ngOnInit (): void {
+    if (this.testBrowser) {
+      //avoid server NETWORK error
+      this.data = this.http.get('/api');
+    }
   }
 }

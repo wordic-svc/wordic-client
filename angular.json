@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/oh-my-baby",
+            "outputPath": "dist/oh-my-baby/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -102,6 +102,60 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/oh-my-baby/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "oh-my-baby:build:development",
+              "serverTarget": "oh-my-baby:server:development"
+            },
+            "production": {
+              "browserTarget": "oh-my-baby:build:production",
+              "serverTarget": "oh-my-baby:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "oh-my-baby:build:production",
+              "serverTarget": "oh-my-baby:server:production"
+            },
+            "development": {
+              "browserTarget": "oh-my-baby:build:development",
+              "serverTarget": "oh-my-baby:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
