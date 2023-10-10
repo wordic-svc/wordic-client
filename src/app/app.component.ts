@@ -11,7 +11,7 @@ import { AppSeoService } from './seo/app-seo.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'oh-my-baby';
+  title = 'wordic';
   public testBrowser  : boolean | undefined;
   public data         : any;
 

@@ -19,11 +19,12 @@ import { AdsModule } from './pages/ads/ads.module';
 
 // TranslateLoader 초기화 함수
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, environment.basePath + environment.i18nPath, '.json');
 }
 import player from 'lottie-web';
 import { LottieModule } from 'ngx-lottie';
 import { LottiModule } from './components/common/lotti/lotti.module';
+import { environment } from '../environments/environment';
 
 // Note we need a separate function as it's required
 // by the AOT compiler.

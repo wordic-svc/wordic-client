@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "oh-my-baby": {
+    "wordic": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/oh-my-baby/browser",
+            "outputPath": "dist/wordic/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "oh-my-baby:build:production"
+              "browserTarget": "wordic:build:production"
             },
             "development": {
-              "browserTarget": "oh-my-baby:build:development"
+              "browserTarget": "wordic:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "oh-my-baby:build"
+            "browserTarget": "wordic:build"
           }
         },
         "test": {
@@ -106,7 +106,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/oh-my-baby/server",
+            "outputPath": "dist/wordic/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json"
           },
@@ -128,12 +128,12 @@
           "builder": "@nguniversal/builders:ssr-dev-server",
           "configurations": {
             "development": {
-              "browserTarget": "oh-my-baby:build:development",
-              "serverTarget": "oh-my-baby:server:development"
+              "browserTarget": "wordic:build:development",
+              "serverTarget": "wordic:server:development"
             },
             "production": {
-              "browserTarget": "oh-my-baby:build:production",
-              "serverTarget": "oh-my-baby:server:production"
+              "browserTarget": "wordic:build:production",
+              "serverTarget": "wordic:server:production"
             }
           },
           "defaultConfiguration": "development"
@@ -147,12 +147,12 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "oh-my-baby:build:production",
-              "serverTarget": "oh-my-baby:server:production"
+              "browserTarget": "wordic:build:production",
+              "serverTarget": "wordic:server:production"
             },
             "development": {
-              "browserTarget": "oh-my-baby:build:development",
-              "serverTarget": "oh-my-baby:server:development"
+              "browserTarget": "wordic:build:development",
+              "serverTarget": "wordic:server:development"
             }
           },
           "defaultConfiguration": "production"
