@@ -5,8 +5,14 @@
 <!--<h1>sadgasdgd</h1>-->
 <!--<button (click)="switchLocale('en')">English</button>-->
 <!--<button (click)="switchLocale('ko')">Ko</button>-->
-<app-alert-modal></app-alert-modal>
-<app-header></app-header>
-<router-outlet></router-outlet>
-<div class="mb-10"></div>
-<app-footer></app-footer>
+<div class="relative">
+  <app-lotti class="w-full h-full"></app-lotti>
+  <app-alert-modal></app-alert-modal>
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+  <div class="mb-10"></div>
+  <app-footer></app-footer>
+
+</div>
+
+<!--<app-lotti class=" z-50"></app-lotti>-->

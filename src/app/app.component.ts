@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
+import { AnimationOptions } from 'ngx-lottie';
+import { AnimationItem } from 'ngx-lottie/lib/symbols';
 
 @Component({
   selector: 'app-root',
@@ -31,5 +33,12 @@ export class AppComponent implements OnInit{
       //avoid server NETWORK error
       this.data = this.http.get('/api');
     }
+  }
+  options: AnimationOptions = {
+    path: '/assets/animation.json',
+  };
+
+  animationCreated(animationItem: AnimationItem): void {
+    console.log(animationItem);
   }
 }

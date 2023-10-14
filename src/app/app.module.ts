@@ -21,6 +21,15 @@ import { AdsModule } from './pages/ads/ads.module';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
 }
+import player from 'lottie-web';
+import { LottieModule } from 'ngx-lottie';
+import { LottiModule } from './components/common/lotti/lotti.module';
+
+// Note we need a separate function as it's required
+// by the AOT compiler.
+export function playerFactory() {
+  return player;
+}
 
 @NgModule({
   declarations: [
@@ -46,7 +55,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AlertModalModule,
     DatePickerModule,
     AdBannerModule,
-    AdsModule
+    AdsModule,
+    LottiModule
   ],
   providers: [ provideClientHydration() ],
   bootstrap: [AppComponent]

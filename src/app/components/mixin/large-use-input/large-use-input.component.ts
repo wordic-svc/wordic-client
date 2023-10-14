@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ChevronType } from '../../vector/chevron-icon/chevron-icon.component';
 import { HttpClient } from '@angular/common/http';
+import { LottiService } from '../../common/lotti/lotti.service';
 
 @Component({
   selector: 'app-large-use-input',
@@ -15,7 +16,7 @@ export class LargeUseInputComponent {
 
   protected readonly ChevronType = ChevronType;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private lotteSvc: LottiService) { }
 
   inputFields = [
     { label: '', placeholder: '등록일시', name: 'REG_DT', value: '' },
@@ -42,8 +43,10 @@ export class LargeUseInputComponent {
     }
     this.onSearch(field.value, field);
   }
-  onSearch(value: string, originField: any) {
-    this.httpClient.get('http://localhost:8000/text/' + value).subscribe((res: any) => {
+  async onSearch(value: string, originField: any) {
+    try {
+      this.lotteSvc.toggle.emit(true);
+      const res: any = await this.httpClient.get('http://loeaf.com/wordic-api/text/' + value).toPromise();
       res.result.forEach((item: any) => {
         this.inputFields.forEach((field: any) => {
           if (field.value === item.kor_name) {
@@ -55,7 +58,11 @@ export class LargeUseInputComponent {
           }
         })
       })
-    });
+    } catch (error) {
+      this.lotteSvc.toggle.emit(false);
+    } finally {
+      this.lotteSvc.toggle.emit(false);
+    }
   }
 
   allClick () {

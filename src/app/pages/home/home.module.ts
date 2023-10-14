@@ -9,6 +9,7 @@ import { DatePickerModule } from '../../components/common/date-picker/date-picke
 import { AdBannerModule } from '../../components/common/ad-banner/ad-banner.module';
 import { LargeUseInputModule } from '../../components/mixin/large-use-input/large-use-input.module';
 import { FormsModule } from '@angular/forms';
+import { LottiModule } from '../../components/common/lotti/lotti.module';
 
 
 
@@ -24,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     DatePickerModule,
     AdBannerModule,
-    LargeUseInputModule
+    LargeUseInputModule,
+    LottiModule
   ],
   exports: [
     HomeComponent,
