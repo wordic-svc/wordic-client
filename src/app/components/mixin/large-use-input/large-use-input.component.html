@@ -18,66 +18,25 @@
                 text-sm font-semibold transition-colors
                 border-gray-500 text-sm transition-colors
                 hover:border-white hover:bg-black
-                hover:text-white">
+                hover:text-white"
+    (click)="allClick()">
       변환하기
     </button>
+  </div><div class="grid grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-4 mt-5">
+  <div class="flex items-center text-black" *ngFor="let field of inputFields; let first = first">
+    <app-input-text #TestEle [label]="field.label"
+                    [Placeholder]="field.placeholder"
+                    [name]="field.name"
+                    (valueChange)="field.value = $event"
+                    [value]="field.value"
+                    [isFocus]="first"
+                    (enterPressed)="onEnterPressed($event, field)"></app-input-text>
+    <app-chevron-icon class="ml-3 cursor-pointer hover:text-indigo-200 border-2 rounded-2xl flex items-center justify-center w-12 h-10 hover:bg-gray-500 " (click)="onClick(TestEle, field)" [type]="ChevronType.RIGHT"></app-chevron-icon>
+    <label
+        class="h-12 w-72 ml-3 border-b-2 border-gray-500 px-4 py-3 outline-none ring-offset-transparent
+           placeholder:text-gray-400 focus:border-gray-700
+           focus:ring-2 focus:ring-gray-700 focus:ring-offset-2">{{field.name}}</label>
   </div>
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-4 mt-5">
-    <div class="flex items-center">
-      <app-input-text [Placeholder]="'등록일시'"></app-input-text>
-      <app-chevron-icon class="ml-3 " [type]="ChevronType.RIGHT"></app-chevron-icon>
-      <label class="h-12 w-72  ml-3 border-b-2 border-gray-500 px-4 py-3 outline-none ring-offset-transparent
-              placeholder:text-gray-400 focus:border-gray-700
-              focus:ring-2 focus:ring-gray-700 focus:ring-offset-2">REG_DT</label>
-    </div>
-    <div class="flex items-center">
-      <app-input-text [Placeholder]="'아이디'"></app-input-text>
-      <app-chevron-icon class="ml-3 " [type]="ChevronType.RIGHT"></app-chevron-icon>
-      <label class="h-12 w-72  ml-3 border-b-2 border-gray-500 px-4 py-3 outline-none ring-offset-transparent
-              placeholder:text-gray-400 focus:border-gray-700
-              focus:ring-2 focus:ring-gray-700 focus:ring-offset-2">ID</label>
-    </div>
-    <div class="flex items-center">
-      <app-input-text [Placeholder]="'테이블속성구분'"></app-input-text>
-      <app-chevron-icon class="ml-3 " [type]="ChevronType.RIGHT"></app-chevron-icon>
-      <label class="h-12 w-72  ml-3 border-b-2 border-gray-500 px-4 py-3 outline-none ring-offset-transparent
-              placeholder:text-gray-400 focus:border-gray-700
-              focus:ring-2 focus:ring-gray-700 focus:ring-offset-2">TBL_PRPR_DVSN</label>
-    </div>
-    <div class="flex items-center">
-      <app-input-text [Placeholder]="'데이터사용여부'"></app-input-text>
-      <app-chevron-icon class="ml-3 " [type]="ChevronType.RIGHT"></app-chevron-icon>
-      <label class="h-12 w-72  ml-3 border-b-2 border-gray-500 px-4 py-3 outline-none ring-offset-transparent
-              placeholder:text-gray-400 focus:border-gray-700
-              focus:ring-2 focus:ring-gray-700 focus:ring-offset-2">DT_USE_YN</label>
-    </div>
-    <div class="flex items-center">
-      <app-input-text [Placeholder]="'회원번호'"></app-input-text>
-      <app-chevron-icon class="ml-3 " [type]="ChevronType.RIGHT"></app-chevron-icon>
-      <label class="h-12 w-72  ml-3 border-b-2 border-gray-500 px-4 py-3 outline-none ring-offset-transparent
-              placeholder:text-gray-400 focus:border-gray-700
-              focus:ring-2 focus:ring-gray-700 focus:ring-offset-2">MBR_NO</label>
-    </div>
-    <div class="flex items-center">
-      <app-input-text [Placeholder]="'성별구분'"></app-input-text>
-      <app-chevron-icon class="ml-3 " [type]="ChevronType.RIGHT"></app-chevron-icon>
-      <label class="h-12 w-72  ml-3 border-b-2 border-gray-500 px-4 py-3 outline-none ring-offset-transparent
-              placeholder:text-gray-400 focus:border-gray-700
-              focus:ring-2 focus:ring-gray-700 focus:ring-offset-2">CSTL_DVSN</label>
-    </div>
-    <div class="flex items-center">
-      <app-input-text [Placeholder]="'폰트명'"></app-input-text>
-      <app-chevron-icon class="ml-3 " [type]="ChevronType.RIGHT"></app-chevron-icon>
-      <label class="h-12 w-72  ml-3 border-b-2 border-gray-500 px-4 py-3 outline-none ring-offset-transparent
-              placeholder:text-gray-400 focus:border-gray-700
-              focus:ring-2 focus:ring-gray-700 focus:ring-offset-2">MBR_NO</label>
-    </div>
-    <div class="flex items-center">
-      <app-input-text [Placeholder]="'트랜드명'"></app-input-text>
-      <app-chevron-icon class="ml-3 " [type]="ChevronType.RIGHT"></app-chevron-icon>
-      <label class="h-12 w-72  ml-3 border-b-2 border-gray-500 px-4 py-3 outline-none ring-offset-transparent
-              placeholder:text-gray-400 focus:border-gray-700
-              focus:ring-2 focus:ring-gray-700 focus:ring-offset-2">CSTL_DVSN</label>
-    </div>
-  </div>
+</div>
+
 </div>

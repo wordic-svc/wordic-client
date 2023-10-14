@@ -5,6 +5,7 @@ import { RightArrowIconModule } from '../../vector/right-arrow-icon/right-arrow-
 import { TranslateModule } from '@ngx-translate/core';
 import { InputTextModule } from '../../common/input-text/input-text.module';
 import { ChevronIconModule } from '../../vector/chevron-icon/chevron-icon.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -20,7 +21,8 @@ import { ChevronIconModule } from '../../vector/chevron-icon/chevron-icon.module
     RightArrowIconModule,
     TranslateModule,
     InputTextModule,
-    ChevronIconModule
+    ChevronIconModule,
+    FormsModule
   ]
 })
 export class LargeUseInputModule { }
