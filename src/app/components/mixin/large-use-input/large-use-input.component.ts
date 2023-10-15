@@ -31,12 +31,10 @@ export class LargeUseInputComponent {
   ];
   onEnterPressed(event: any, field: any) {
     field.value = event.target.value;
-    alert(field.value);
     this.onSearch(field.value, field);
   }
 
   onClick ($event: any, field: any) {
-    debugger;
     if (field.value === '' || $event.value == null) {
       alert('값을 입력해주세요');
       return;
@@ -66,7 +64,7 @@ export class LargeUseInputComponent {
   }
 
   allClick () {
-    const p = this.inputFields.map(p => p.value);
+    const p = this.inputFields.filter(p => p.value !== '').map(p => p.value);
     this.onSearch(p.join(','), null);
   }
 }
