@@ -19,7 +19,7 @@ import { AdsModule } from './pages/ads/ads.module';
 
 // TranslateLoader 초기화 함수
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 import player from 'lottie-web';
 import { LottieModule } from 'ngx-lottie';

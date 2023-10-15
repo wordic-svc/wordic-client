@@ -14,7 +14,7 @@ export class LottiComponent implements OnInit{
   }
 
   options: AnimationOptions = {
-    path: '/assets/animation.json',
+    path: './assets/animation.json',
   };
 
   animationCreated(animationItem: AnimationItem): void {
