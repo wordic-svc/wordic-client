@@ -19,7 +19,10 @@ export class AppSeoService {
       { property: 'og:description', content: data.description },
       { property: 'og:site_name', content: data.site_name },
       { property: 'og:url', content: 'https://www.loeaf.com/' },
-      { property: 'og:image', content: data.src }
+      { property: 'og:images', content: data.src },
+      { property: 'og:images:alt', content: data.description },
+      { property: 'og:images:width', content: '1200' },
+      { property: 'og:images:height', content: '639' }
     ]);
 
     // favicon 및 기타 링크 설정
