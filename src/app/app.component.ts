@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { AnimationOptions } from 'ngx-lottie';
 import { AnimationItem } from 'ngx-lottie/lib/symbols';
+import { AppSeoService } from './seo/app-seo.service';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,10 @@ export class AppComponent implements OnInit{
   title = 'oh-my-baby';
   public testBrowser  : boolean | undefined;
   public data         : any;
+
   constructor(private translateService: TranslateService,
-              private http: HttpClient, @Inject(PLATFORM_ID) platformId: string) {
+              private http: HttpClient, @Inject(PLATFORM_ID) platformId: string,
+              private appSeoService: AppSeoService) {
     // 초기 언어 설정
     translateService.setDefaultLang('ko'); // 한국어로 설정
     // 번역된 문자열 가져오기
@@ -33,6 +36,13 @@ export class AppComponent implements OnInit{
       //avoid server NETWORK error
       this.data = this.http.get('/api');
     }
+    const seoData = {
+      title: 'Wordic - 한글 컬럼명을 영어 스네이크 표현식으로 변환',
+      site_name: 'Wordic - 데이터베이스 스키마 표준화 도구',
+      description: 'Wordic은 데이터베이스 컬럼명을 한글로 작성하고 이를 일관성 있는 영어 스네이크 표현식으로 변환해주는 도구입니다. 데이터베이스 관리의 새로운 표준을 경험하세요.',
+      src: './assets/img/open_graph.png' // 이미지 경로를 여기에 넣으십시오.
+    };
+    this.appSeoService.setSeoData(seoData)
   }
   options: AnimationOptions = {
     path: './assets/animation.json',
@@ -41,4 +51,7 @@ export class AppComponent implements OnInit{
   animationCreated(animationItem: AnimationItem): void {
     console.log(animationItem);
   }
+
+
 }
+
