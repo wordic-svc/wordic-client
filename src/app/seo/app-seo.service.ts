@@ -11,16 +11,15 @@ export class AppSeoService {
   setSeoData(data: any) {
     this.title.setTitle(data.title);
     this.meta.addTags([
+      { name: 'author', content: data.author },
+      { name: 'keywords', content: data.keywords },
       { name: 'description', content: data.description },
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: data.title },
       { property: 'og:description', content: data.description },
       { property: 'og:site_name', content: data.site_name },
       { property: 'og:url', content: 'https://www.loeaf.com/' },
-      { property: 'og:image', content: data.src },
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:handle', content: '@sandoll-metalab' },
-      { name: 'twitter:site', content: '@hama' }
+      { property: 'og:image', content: data.src }
     ]);
 
     // favicon 및 기타 링크 설정
@@ -32,6 +31,8 @@ export class AppSeoService {
 }
 
 interface SeoData {
+  author: string;
+  keywords: string;
   title: string;
   description: string;
   site_name: string;
