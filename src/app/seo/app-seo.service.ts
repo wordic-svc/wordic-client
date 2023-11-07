@@ -18,7 +18,7 @@ export class AppSeoService {
       { property: 'og:title', content: data.title },
       { property: 'og:description', content: data.description },
       { property: 'og:site_name', content: data.site_name },
-      { property: 'og:url', content: 'https://www.loeaf.com/' },
+      { property: 'og:url', content: 'https://www.wordic.loeaf.com/' },
       { property: 'og:images', content: data.src },
       { property: 'og:images:alt', content: data.description },
       { property: 'og:images:width', content: '1200' },
