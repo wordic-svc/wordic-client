@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject, Input, PLATFORM_ID } from '@angular/core';
 import { ChevronType } from '../../vector/chevron-icon/chevron-icon.component';
 import { HttpClient } from '@angular/common/http';
 import { LottiService } from '../../common/lotti/lotti.service';
 import { environment } from '../../../../environments/environment';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-large-use-input',
@@ -16,8 +17,11 @@ export class LargeUseInputComponent {
   subtitle: string = '변환하기';
 
   protected readonly ChevronType = ChevronType;
+  platformId: string = '';
 
-  constructor(private httpClient: HttpClient, private lotteSvc: LottiService) { }
+  constructor(private httpClient: HttpClient, private lotteSvc: LottiService, @Inject(PLATFORM_ID) platformId: string) {
+    this.platformId = platformId;
+  }
 
   inputFields = [
     { label: '', placeholder: '등록일시', name: 'REG_DT', value: '' },
@@ -45,18 +49,20 @@ export class LargeUseInputComponent {
   async onSearch(value: string, originField: any) {
     try {
       this.lotteSvc.toggle.emit(true);
-      const res: any = await this.httpClient.get(environment.apiUrl + '/text/' + value).toPromise();
-      res.result.forEach((item: any) => {
-        this.inputFields.forEach((field: any) => {
-          if (field.value === item.kor_name) {
-            field.name = item.eng_name;
-          } else {
-            if (originField !== null && field.name === originField.name) {
-              field.name = '';
+      if(isPlatformBrowser(this.platformId)) {
+        const res: any = await this.httpClient.get(environment.apiUrl + '/text/' + value).toPromise();
+        res.result.forEach((item: any) => {
+          this.inputFields.forEach((field: any) => {
+            if (field.value === item.kor_name) {
+              field.name = item.eng_name;
+            } else {
+              if (originField !== null && field.name === originField.name) {
+                field.name = '';
+              }
             }
-          }
+          })
         })
-      })
+      }
     } catch (error) {
       this.lotteSvc.toggle.emit(false);
     } finally {

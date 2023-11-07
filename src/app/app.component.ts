@@ -32,15 +32,11 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit (): void {
-    if (this.testBrowser) {
-      //avoid server NETWORK error
-      this.data = this.http.get('/api');
-    }
-    const seoData = {
-      title: 'Wordic - 한글 컬럼명을 영어 스네이크 표현식으로 변환',
-      site_name: 'Wordic - 데이터베이스 스키마 표준화 도구',
+      const seoData = {
+      title: '한글 컬럼명을 영어 스네이크 표현식으로 변환 - Wordic',
+      site_name: '데이터베이스 스키마 표준화 도구 - Wordic',
       description: 'Wordic은 데이터베이스 컬럼명을 한글로 작성하고 이를 일관성 있는 영어 스네이크 표현식으로 변환해주는 도구입니다. 데이터베이스 관리의 새로운 표준을 경험하세요.',
-      src: 'http://loeaf.com/assets/static/img/open_graph.png', // 이미지 경로를 여기에 넣으십시오.
+      src: 'https://loeaf.com/assets/static/img/open_graph.png', // 이미지 경로를 여기에 넣으십시오.
       author: 'Wordic',
       keywords:
         "데이터베이스 외부 이름, 한글, 영어 스네이크, 일관성, 데이터 관리, 데이터 분석, 데이터베이스 일관성, 쿼리 작업, 사용자 정의 규칙, 인터페이스, 데이터 관리자, 데이터분석가, 소프트웨어 개발자, 일관성을 유지하다, 데이터베이스에 포함"
