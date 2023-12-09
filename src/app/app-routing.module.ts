@@ -4,7 +4,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { IntroComponent } from './pages/intro/intro.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: '',  redirectTo: '/variable-name', pathMatch: 'full' },
+  { path: 'variable-name', component: HomeComponent},
   { path: 'intro', component: IntroComponent},
 ];
 
