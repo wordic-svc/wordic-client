@@ -1,15 +1,16 @@
-import { ChangeDetectorRef, Component, Inject, Input, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LottiService } from '../../components/common/lotti/lotti.service';
 import { isPlatformBrowser } from '@angular/common';
 import { environment } from '../../../environments/environment';
+import { AppSeoService, SeoData } from '../../seo/app-seo.service';
 
 @Component({
   selector: 'app-eng-abbreviate',
   templateUrl: './eng-abbreviate.component.html',
   styleUrls: ['./eng-abbreviate.component.css']
 })
-export class EngAbbreviateComponent {
+export class EngAbbreviateComponent implements OnInit{
   @Input()
   title: string = '';
   @Input()
@@ -50,6 +51,7 @@ export class EngAbbreviateComponent {
 
   constructor(private httpClient: HttpClient,
               private lotteSvc: LottiService,
+              private appSeoService: AppSeoService,
               @Inject(PLATFORM_ID) platformId: string,
               private cdr: ChangeDetectorRef) {
     this.platformId = platformId;
@@ -94,6 +96,20 @@ export class EngAbbreviateComponent {
 
   onValueChange ($event: any) {
 
+  }
+
+  ngOnInit (): void {
+    const seoData: SeoData = {
+      author: 'wordic',
+      keywords: `영어 변수명, 영어약자, 변수 영어로, 컬럼명, 영문 약어, 한글 변수명 변수 선언, 변수명 짓기, 컬럼명 짓기, 영문약어, 영어약자, 변수 영어로, 변수 선언`,
+      lang: 'ko',
+      title: `영문 축약어 Wordic | 영어 축약어 | 영어 변수명 짓기 | 컬럼명 짓기 | 변수명 약어 | 컬럼명 약어`,
+      description: `영문명을 영문 축약어로 쉽게 만들 수 있습니다. 변수명, 컬럼명, 필드명, 영어 약어, 영문약어 등.`,
+      site_name: '영문 축약어 Wordic',
+      site_url: environment.basePath + '/eng-abbreviate',
+      src: environment.basePath + '/eng-abbreviate'
+    }
+    this.appSeoService.setMainSeoData(seoData)
   }
 }
 

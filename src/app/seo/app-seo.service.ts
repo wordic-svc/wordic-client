@@ -2,6 +2,7 @@ import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import * as moment from 'moment';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,6 +10,83 @@ export class AppSeoService {
 
   constructor(private title: Title, private meta: Meta, @Inject(PLATFORM_ID) private platformId: Object,
               @Inject(DOCUMENT) private document: Document) { }
+
+  setMainSeoData(data: SeoData) {
+    this.title.setTitle(data.title)
+    this.meta.addTags([
+      { name: 'title', content: data.title},
+      {
+        name: 'keywords',
+        content: data.keywords
+      },
+      { name: 'description', content: data.description},
+      { name: 'twitter:card', content: 'Summary' },
+      { name: 'twitter:site', content: '@fontwiki' },
+      { name: 'twitter:creator', content: '@fontwiki' },
+      { name: 'twitter:title', content: data.keywords },
+      { name: 'twitter:description', content: data.description},
+      { name: 'twitter:image:alt', content: data.description},
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
+      { property: 'og:image:type', content: 'image/png' },
+      { property: 'og:image:alt', content: data.title},
+      { property: 'og:type', content: 'website' },
+      { property: 'og:site_name', content: data.site_name },
+      { property: 'og:locale', content: `ko_KR` },
+      { property: 'og:title', content: data.title},
+      { property: 'og:description', content: data.description},
+      { name: 'name', content: data.site_name },
+      { name: 'description', content: data.description},
+      { rel: 'canonical', href: environment.basePath},
+      { property: 'og:url', content: environment.basePath},
+      { name: 'twitter:url', content: environment.basePath},
+      {
+        property: 'og:image',
+        content: environment.basePath + '/assets/icon/open_graph.png'
+      },
+      {
+        name: 'twitter:image',
+        content: environment.basePath + '/assets/icon/open_graph.png'
+      }]
+    );
+
+    this.createCanonicalLink(environment.basePath);
+    this.createAlternateLink('ko', environment.basePath);
+  }
+
+
+  private createCanonicalLink(url: string) {
+    this.removeCanonicalLink(); // 이미 있는 링크 제거
+    const _canonicalLink = this.document.createElement('link');
+    _canonicalLink.setAttribute('rel', 'canonical');
+    _canonicalLink.setAttribute('href', url);
+    this.document.head.appendChild(_canonicalLink);
+  }
+  private createAlternateLink(locale: string, url: string) {
+    this.removeAlternateLinkForLocale(locale); // 이미 있는 링크 제거
+    const _link = this.document.createElement('link');
+    _link.setAttribute('rel', 'alternate');
+    _link.setAttribute('hreflang', locale);
+    _link.setAttribute('href', url);
+    this.document.head.appendChild(_link);
+  }
+
+  private removeCanonicalLink() {
+    const existingCanonicalLink = this.document.head.querySelector('link[rel="canonical"]');
+    if (existingCanonicalLink) {
+      existingCanonicalLink.remove(); // 이미 canonical 링크가 존재하면 제거
+    }
+  }
+  private removeAlternateLinkForLocale(locale: string) {
+    const existingLinks = this.document.head.querySelectorAll('link[rel="alternate"]');
+    existingLinks.forEach((link) => {
+      const existingLocale = link.getAttribute('hreflang');
+      if (existingLocale === locale) {
+        link.remove(); // 이미 해당 locale에 대한 alternate 링크가 존재하면 제거
+      }
+    });
+  }
+
 
   setSeoData(data: SeoData) {
     this.title.setTitle(data.title);
@@ -114,7 +192,7 @@ export class AppSeoService {
 
 }
 
-interface SeoData {
+export interface SeoData {
   author: string;
   keywords: string;
   lang:string;
