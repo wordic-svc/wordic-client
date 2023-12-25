@@ -67,7 +67,7 @@ export class AppSeoService {
     );
 
     this.createCanonicalLink(data.site_url);
-    this.createAlternateLink(data.lang, environment.basePath);
+    this.createAlternateLink(data.lang, data.site_url);
   }
   private removeAlternateLinkForLocale(locale: string) {
     const existingLinks = this.document.head.querySelectorAll('link[rel="alternate"]');
