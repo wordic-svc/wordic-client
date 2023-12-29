@@ -23,11 +23,11 @@ export class SingleUseInputComponent {
 
   resultData: ResultAttrive = {
     info: {
-      kebab_case: 'rgst-dt',
-      camel_case: 'rgstDt',
-      snake_case_l: 'RGST_DT',
-      snake_case_s: 'rgst_dt',
-      pascal_case: 'RgstDt',
+      kebab_case: 'registration-datetime',
+      camel_case: 'registrationDatetime',
+      snake_case_l: 'REGISTRATION_DATETIME',
+      snake_case_s: 'registration_datetime',
+      pascal_case: 'RegistrationDatetime',
       combined_text: []
     },
     words: [
@@ -40,7 +40,7 @@ export class SingleUseInputComponent {
       },
       {
         "kor_text": "일시",
-        "eng_text": "date",
+        "eng_text": "datetime",
         "attrive_text": "dt",
         "pos": "1",
         "code": "일반 명사"
