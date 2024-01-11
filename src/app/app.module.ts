@@ -25,6 +25,7 @@ import { LottiModule } from './components/common/lotti/lotti.module';
 import { environment } from '../environments/environment';
 import { EngAbbreviateModule } from './pages/eng-abbreviate/eng-abbreviate.module';
 import { ToastModule } from './components/common/toast/toast.module';
+import { CaseConvertModule } from './pages/case-convert/case-convert.module';
 
 // Note we need a separate function as it's required
 // by the AOT compiler.
@@ -57,7 +58,8 @@ export function playerFactory() {
     DatePickerModule,
     LottiModule,
     EngAbbreviateModule,
-    ToastModule
+    ToastModule,
+    CaseConvertModule
   ],
   providers: [ provideClientHydration() ],
   bootstrap: [AppComponent]
