@@ -3,7 +3,7 @@
     <h1 class="pl-5 pr-5 md:p-0 items-center flex justify-center text-[16px] font-bold text-gray-800 lg:pt-0 lg:text-2xl">
       변수명 짓기, 컬럼명 짓기, 영어약자을 쉽게 만들 수 있습니다.
     </h1>
-    <h2  class="pl-5 pr-5 md:pt-0 items-center flex justify-center font-bold text-gray-800 text-[16px] md:text-xl">
+    <h2  class="pl-5 pr-5 md:pt-0 items-center flex justify-center font-bold text-gray-800 text-[16px] md:text-xl mb-5">
       아래 입력창에 한글 변수명, 컬럼을 입력하면 자동 영어약자를 만들어줍니다.
     </h2>
     <div class="flex items-center justify-center text-black pl-5 pr-5">
@@ -28,7 +28,7 @@
     </div>
   </div>
   <div class="w-full pt-5 pb-5 pl-10 pr-10 lg:p-0 scroll-auto">
-    <p class="pt-2 text-xl font-bold text-gray-800 lg:pt-0 lg:text-2xl">변수정보</p>
+    <p class="pt-2 text-xl font-bold text-gray-800 lg:pt-0 lg:text-2xl mt-8">형태소분석 변수정보</p>
     <div style="overflow:auto; min-width:295px">
       <table class="w-full">
         <thead>
@@ -77,8 +77,58 @@
       </table>
     </div>
   </div>
+  <div class="w-full pt-5 pb-5 pl-10 pr-10 lg:p-0 scroll-auto">
+    <p class="pt-2 text-xl font-bold text-gray-800 lg:pt-0 lg:text-2xl mt-8">번역 변수정보</p>
+    <div style="overflow:auto; min-width:295px">
+      <table class="w-full">
+        <thead>
+        <tr class="border-b-[1px] border-gray-700">
+          <th class="pb-3 pt-3 pl-5 pr-5 text-black">영문</th>
+          <th class="pb-3 pt-3 pl-5 pr-5 text-black">카멜</th>
+          <th class="pb-3 pt-3 pl-5 pr-5 text-black">파스칼</th>
+          <th class="pb-3 pt-3 pl-5 pr-5 text-black">스네이크(소)</th>
+          <th class="pb-3 pt-3 pl-5 pr-5 text-black">스네이크(대)</th>
+        </tr>
+        </thead>
+        <tbody class="text-center">
+        <tr class="border-b-[1px] border-gray-300">
+          <td class="pb-3 pt-3 pl-5 pr-5 text-black">
+            <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer" (click)="copyClipboard(resultData.info.kebab_case)">
+              {{resultData.papago.kebab_case}}
+              <app-copy-icon class="text-gray-400"></app-copy-icon>
+            </div>
+          </td>
+          <td class="pb-3 pt-3 pl-5 pr-5 text-black">
+            <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer" (click)="copyClipboard(resultData.info.camel_case)">
+              {{resultData.papago.camel_case}}
+              <app-copy-icon class="text-gray-400 "></app-copy-icon>
+            </div>
+          </td>
+          <td class="pb-3 pt-3 pl-5 pr-5 text-black">
+            <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer" (click)="copyClipboard(resultData.info.pascal_case)">
+              {{resultData.papago.pascal_case}}
+              <app-copy-icon class="text-gray-400 "></app-copy-icon>
+            </div>
+          </td>
+          <td class="pb-3 pt-3 pl-5 pr-5 text-black">
+            <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer" (click)="copyClipboard(resultData.info.snake_case_s)">
+              {{resultData.papago.snake_case_s}}
+              <app-copy-icon class="text-gray-400 "></app-copy-icon>
+            </div>
+          </td>
+          <td class="pb-3 pt-3 pl-5 pr-5 text-black">
+            <div class="text-gray-600 flex items-center justify-center hover:text-black cursor-pointer" (click)="copyClipboard(resultData.info.snake_case_l)">
+              {{resultData.papago.snake_case_l}}
+              <app-copy-icon class="text-gray-400 "></app-copy-icon>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
   <div class="w-full mb-5 pl-10 pr-10 lg:p-0 lg:pt-5">
-    <p class="pt-2 pb-2 text-xl font-bold text-gray-800 lg:pt-0 lg:text-2xl">구성정보</p>
+    <p class="pt-2 pb-2 text-xl font-bold text-gray-800 lg:pt-0 lg:text-2xl mt-8">형태소 구성정보</p>
     <div style="overflow:auto; min-width:295px">
       <table class="w-full">
         <thead>

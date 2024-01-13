@@ -30,6 +30,14 @@ export class SingleUseInputComponent {
       pascal_case: 'RegistrationDatetime',
       combined_text: []
     },
+    papago: {
+      kebab_case: 'registration-datetime',
+      camel_case: 'registrationDatetime',
+      snake_case_l: 'REGISTRATION_DATETIME',
+      snake_case_s: 'registration_datetime',
+      pascal_case: 'RegistrationDatetime',
+      combined_text: []
+    },
     words: [
       {
         "kor_text": "등록",
@@ -116,6 +124,7 @@ export class SingleUseInputComponent {
 
 interface ResultAttrive {
   info: ResultInfo;
+  papago: ResultInfo;
   words: ResultWord[];
 }
 interface ResultInfo {
