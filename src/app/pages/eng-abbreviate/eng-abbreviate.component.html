@@ -65,7 +65,12 @@
           </thead>
           <tbody class="text-center">
           <tr class="border-b-[1px] border-gray-300" *ngFor="let obj of resultData">
-            <td class="text-gray-600 pb-3 pt-3 pl-5 pr-5">{{obj.text}}</td>
+            <td class="text-gray-600 pb-3 pt-3 pl-5 pr-5">
+              <div class="flex items-center justify-center" (click)="copyClipboard(obj.eng_text)">
+                {{obj.text}}
+                <app-copy-icon class="text-gray-400 "></app-copy-icon>
+              </div>
+              </td>
             <td class="text-gray-600 pb-3 pt-3 pl-5 pr-5">{{obj.length}}</td>
           </tr>
           </tbody>
@@ -76,3 +81,4 @@
 
   </div>
 </section>
+<app-update-info></app-update-info>
