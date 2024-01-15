@@ -4,6 +4,8 @@ import { LottiService } from '../../components/common/lotti/lotti.service';
 import { isPlatformBrowser } from '@angular/common';
 import { environment } from '../../../environments/environment';
 import { AppSeoService, SeoData } from '../../seo/app-seo.service';
+import { Clipboard } from '@angular/cdk/clipboard';
+import { ToastService } from '../../components/common/toast/toast.service';
 
 @Component({
   selector: 'app-eng-abbreviate',
@@ -51,6 +53,8 @@ export class EngAbbreviateComponent implements OnInit{
 
   constructor(private httpClient: HttpClient,
               private lotteSvc: LottiService,
+              private clipboard: Clipboard,
+              private toastService: ToastService,
               private appSeoService: AppSeoService,
               @Inject(PLATFORM_ID) platformId: string,
               private cdr: ChangeDetectorRef) {
@@ -110,6 +114,11 @@ export class EngAbbreviateComponent implements OnInit{
       src: environment.basePath + '/eng-abbreviate'
     }
     this.appSeoService.setSeoData(seoData)
+  }
+
+  copyClipboard (kebab_case: string) {
+    this.clipboard.copy(kebab_case);
+    this.toastService.showToast(`${kebab_case} 복사되었습니다.`);
   }
 }
 
