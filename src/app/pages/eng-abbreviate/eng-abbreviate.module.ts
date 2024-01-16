@@ -5,6 +5,7 @@ import { SingleUseInputModule } from '../../components/mixin/single-use-input/si
 import { CopyIconModule } from '../../components/vector/copy-icon/copy-icon.module';
 import { InputTextModule } from '../../components/common/input-text/input-text.module';
 import { SearchIconModule } from '../../components/vector/search-icon/search-icon.module';
+import { UpdateInfoModule } from '../update-info/update-info.module';
 
 
 
@@ -17,7 +18,8 @@ import { SearchIconModule } from '../../components/vector/search-icon/search-ico
     SingleUseInputModule,
     CopyIconModule,
     InputTextModule,
-    SearchIconModule
+    SearchIconModule,
+    UpdateInfoModule
   ],
   exports: [
     EngAbbreviateComponent
