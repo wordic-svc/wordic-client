@@ -11,6 +11,7 @@
       <app-input-text class="w-[50%]" #TestEle
                       [Placeholder]="'등록일시'"
                       [name]="'sample'"
+                      [value]="inputValue"
                       (valueChange)="onValueChange($event)"
                       [isFocus]="true"
                       (enterPressed)="onEnterPressed($event)"></app-input-text>
