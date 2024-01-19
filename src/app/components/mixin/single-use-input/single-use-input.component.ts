@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Inject, Input, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LottiService } from '../../common/lotti/lotti.service';
 import { isPlatformBrowser } from '@angular/common';
@@ -6,13 +6,15 @@ import { environment } from '../../../../environments/environment';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { ChevronType } from '../../vector/chevron-icon/chevron-icon.component';
 import { ToastService } from '../../common/toast/toast.service';
+import { SingleUseInputService } from './single-use-input.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-single-use-input',
   templateUrl: './single-use-input.component.html',
   styleUrls: ['./single-use-input.component.css']
 })
-export class SingleUseInputComponent {
+export class SingleUseInputComponent implements OnInit{
   @Input()
   title: string = '';
   @Input()
@@ -55,16 +57,28 @@ export class SingleUseInputComponent {
       }
       ]
   };
+  inputValue: any = '';
 
   constructor(private httpClient: HttpClient,
               private lotteSvc: LottiService,
               private clipboard: Clipboard,
+              private router: Router,
               @Inject(PLATFORM_ID) platformId: string,
+              private singleUseInputService: SingleUseInputService,
               private toastService: ToastService,
+              private activeRoute: ActivatedRoute,
               private cdr: ChangeDetectorRef) {
     this.platformId = platformId;
   }
 
+  ngOnInit(): void {
+    this.activeRoute.queryParams.subscribe((params: any) => {
+      this.inputValue = params.keyword;
+      this.onSearch(params.keyword);
+    })
+      // this.singleUseInputService.onSearch.subscribe(p => {
+      // })
+    }
   inputFields = [
     { label: '', placeholder: '등록일시', name: 'RGST_DT', value: '' },
     { label: '', placeholder: '아이디', name: 'ID', value: '' },
@@ -77,7 +91,8 @@ export class SingleUseInputComponent {
     // Add more fields here if needed
   ];
   onEnterPressed(event: any) {
-    this.onSearch(event.target.value);
+    // this.singleUseInputService.onSearch.emit(event.target.value);
+    this.router.navigate(['/variable-name'], { queryParams: { keyword: event.target.value } });
   }
 
   onClick ($event: any) {
@@ -85,7 +100,7 @@ export class SingleUseInputComponent {
       alert('값을 입력해주세요');
       return;
     }
-    this.onSearch($event.value);
+    this.router.navigate(['/variable-name'], { queryParams: { keyword: $event.value } });
   }
   async onSearch(value: string) {
     try {
@@ -105,8 +120,6 @@ export class SingleUseInputComponent {
       this.lotteSvc.toggle.emit(false);
     }
   }
-
-
   onValueChange ($event: any) {
 
   }
