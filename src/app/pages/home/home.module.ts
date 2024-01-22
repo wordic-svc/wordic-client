@@ -10,6 +10,7 @@ import { LargeUseInputModule } from '../../components/mixin/large-use-input/larg
 import { FormsModule } from '@angular/forms';
 import { LottiModule } from '../../components/common/lotti/lotti.module';
 import { SingleUseInputModule } from '../../components/mixin/single-use-input/single-use-input.module';
+import { UpdateInfoModule } from '../update-info/update-info.module';
 
 
 
@@ -26,7 +27,8 @@ import { SingleUseInputModule } from '../../components/mixin/single-use-input/si
     DatePickerModule,
     LargeUseInputModule,
     LottiModule,
-    SingleUseInputModule
+    SingleUseInputModule,
+    UpdateInfoModule
   ],
   exports: [
     HomeComponent,
