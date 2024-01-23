@@ -72,9 +72,12 @@ export class SingleUseInputComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.activeRoute.queryParams.subscribe((params: any) => {
+    this.activeRoute.queryParams.subscribe(async (params: any) => {
       this.inputValue = params.keyword;
-      this.onSearch(params.keyword);
+      if (params.keyword === '' || params.keyword == null) {
+        return;
+      }
+      await this.onSearch(params.keyword);
     })
       // this.singleUseInputService.onSearch.subscribe(p => {
       // })
@@ -92,7 +95,9 @@ export class SingleUseInputComponent implements OnInit{
   ];
   onEnterPressed(event: any) {
     // this.singleUseInputService.onSearch.emit(event.target.value);
-    this.router.navigate(['/variable-name'], { queryParams: { keyword: event.target.value } });
+    this.router.navigate(['/variable-name'], { queryParams: {
+      keyword: event.target.value,
+      abbri: this.abbreviation } });
   }
 
   onClick ($event: any) {
@@ -100,7 +105,12 @@ export class SingleUseInputComponent implements OnInit{
       alert('값을 입력해주세요');
       return;
     }
-    this.router.navigate(['/variable-name'], { queryParams: { keyword: $event.value } });
+    debugger;
+    this.router.navigate(['/variable-name'], { queryParams: {
+      keyword: $event.value,
+      abbri: this.abbreviation
+    }
+    });
   }
   async onSearch(value: string) {
     try {
@@ -132,6 +142,10 @@ export class SingleUseInputComponent implements OnInit{
     this.clipboard.copy(kebab_case);
     this.toastService.showToast(`${kebab_case} 복사되었습니다.`);
 
+  }
+
+  resetText () {
+    this.inputValue = '';
   }
 }
 
