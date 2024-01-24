@@ -62,10 +62,10 @@ export class SingleUseInputComponent implements OnInit{
   constructor(private httpClient: HttpClient,
               private lotteSvc: LottiService,
               private clipboard: Clipboard,
+              private toastService: ToastService,
               private router: Router,
               @Inject(PLATFORM_ID) platformId: string,
               private singleUseInputService: SingleUseInputService,
-              private toastService: ToastService,
               private activeRoute: ActivatedRoute,
               private cdr: ChangeDetectorRef) {
     this.platformId = platformId;
@@ -141,7 +141,6 @@ export class SingleUseInputComponent implements OnInit{
   copyClipboard (kebab_case: string) {
     this.clipboard.copy(kebab_case);
     this.toastService.showToast(`${kebab_case} 복사되었습니다.`);
-
   }
 
   resetText () {
