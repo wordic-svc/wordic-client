@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { AlertModalService } from '../../components/modal/alert-modal/alert-modal.service';
 import { AppSeoService, SeoData } from '../../seo/app-seo.service';
 import { environment } from '../../../environments/environment';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import { environment } from '../../../environments/environment';
 })
 export class HomeComponent implements OnInit{
 
-  constructor (private appSeoService: AppSeoService) {
+  constructor (private appSeoService: AppSeoService, @Inject(PLATFORM_ID) private platformId: string,) {
   }
   ngOnInit (): void {
     this.initData();
@@ -29,4 +30,11 @@ export class HomeComponent implements OnInit{
   async initData() {
   }
 
+  openPopup () {
+    if(isPlatformBrowser(this.platformId)) {
+      // popup open https://comfyprompt.com
+      window.open('https://comfyprompt.com', '_blank');
+
+    }
+  }
 }

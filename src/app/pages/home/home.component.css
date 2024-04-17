@@ -1,0 +1,3 @@
+.hover-effect:hover img {
+  filter: brightness(70%);
+}
