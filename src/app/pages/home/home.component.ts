@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit{
   openPopup () {
     if(isPlatformBrowser(this.platformId)) {
       // popup open https://comfyprompt.com
-      window.open('https://comfyprompt.com', '_blank');
+      window.open('https://g2bmarket.com', '_blank');
 
     }
   }
